@@ -1,15 +1,22 @@
 :set number
+:set shiftwidth     =4
+:set softtabstop    =4
+:set shiftwidth     =4
+:set expandtab
+
 
 """"""""""""""""""""
 "     PLUGINS      "
 """"""""""""""""""""
 call plug#begin()
 
-Plug 'ellisonleao/gruvbox.nvim'
+" Plug 'ellisonleao/gruvbox.nvim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -18,7 +25,7 @@ call plug#end()
 """"""""""""""""""""
 set termguicolors
 set background=dark
-colorscheme gruvbox
+colorscheme nord
 
 """"""""""""""""""""
 "   TREE STATUS    "
@@ -39,7 +46,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 """"""""""""""""""""
 "     LIGHTLINE    "
 """"""""""""""""""""
-let g:lightline = { 'colorscheme': 'gruvbox'}
+let g:lightline = { 'colorscheme': 'nord'}
 
 """"""""""""""""""""
 "    PRETTIER      "
@@ -60,3 +67,5 @@ let g:prettier#autoformat_require_pragma = 0
 "      REMAPS      "
 """"""""""""""""""""
 nnoremap <F5> :NERDTreeToggle<CR>
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"

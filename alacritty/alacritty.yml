@@ -113,7 +113,7 @@ opacity:
 font:
   # Normal (roman) font face
   normal:
-    family: Agave Nerd Font
+    family: FiraCode Nerd Font
     style: regular
 
   # Bold font face
@@ -150,7 +150,7 @@ font:
   #style: Bold Italic
 
   # Point size
-  size: 8.0
+  size: 7.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -182,128 +182,178 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
+# Colors (Nord)
+colors:
+  primary:
+    background: "#2e3440"
+    foreground: "#d8dee9"
+    dim_foreground: "#a5abb6"
+  cursor:
+    text: "#2e3440"
+    cursor: "#d8dee9"
+  vi_mode_cursor:
+    text: "#2e3440"
+    cursor: "#d8dee9"
+  selection:
+    text: CellForeground
+    background: "#4c566a"
+  search:
+    matches:
+      foreground: CellBackground
+      background: "#88c0d0"
+    bar:
+      background: "#434c5e"
+      foreground: "#d8dee9"
+  normal:
+    black: "#3b4252"
+    red: "#bf616a"
+    green: "#a3be8c"
+    yellow: "#ebcb8b"
+    blue: "#81a1c1"
+    magenta: "#b48ead"
+    cyan: "#88c0d0"
+    white: "#e5e9f0"
+  bright:
+    black: "#4c566a"
+    red: "#bf616a"
+    green: "#a3be8c"
+    yellow: "#ebcb8b"
+    blue: "#81a1c1"
+    magenta: "#b48ead"
+    cyan: "#8fbcbb"
+    white: "#eceff4"
+  dim:
+    black: "#373e4d"
+    red: "#94545d"
+    green: "#809575"
+    yellow: "#b29e75"
+    blue: "#68809a"
+    magenta: "#8c738c"
+    cyan: "#6d96a5"
+    white: "#aeb3bb"
+
 # Colors (Gruvbox Dark)
 
-colors:
-  # Default colors
-  primary:
-    # hard contrast: background = '0x1d2021'
-    background: "0x282828"
-    #soft contrast: background = '0x32302f'
-    foreground: "0xebdbb2"
+#colors:
+#  # Default colors
+#  primary:
+#    # hard contrast: background = '0x1d2021'
+#    background: "0x282828"
+#    #soft contrast: background = '0x32302f'
+#    foreground: "0xebdbb2"
+#
+#  # Normal colors
+#  normal:
+#    black: "0x282828"
+#    red: "0xcc241d"
+#    green: "0x98971a"
+#    yellow: "0xd79921"
+#    blue: "0x458588"
+#    magenta: "0xb16286"
+#    cyan: "0x689d6a"
+#    white: "0xa89984"
+#
+#  # Bright colors
+#  bright:
+#    black: "0x928374"
+#    red: "0xfb4934"
+#    green: "0xb8bb26"
+#    yellow: "0xfabd2f"
+#    blue: "0x83a598"
+#    magenta: "0xd3869b"
+#    cyan: "0x8ec07c"
+#    white: "0xebdbb2"
 
-  # Normal colors
-  normal:
-    black: "0x282828"
-    red: "0xcc241d"
-    green: "0x98971a"
-    yellow: "0xd79921"
-    blue: "0x458588"
-    magenta: "0xb16286"
-    cyan: "0x689d6a"
-    white: "0xa89984"
+# Keyboard regex hints
+#hints:
+# First character in the hint label
+#
+# Allowed values are CellForeground/CellBackground, which reference the
+# affected cell, or hexadecimal colors like #ff00ff.
+#start:
+#  foreground: '#1d1f21'
+#  background: '#e9ff5e'
 
-  # Bright colors
-  bright:
-    black: "0x928374"
-    red: "0xfb4934"
-    green: "0xb8bb26"
-    yellow: "0xfabd2f"
-    blue: "0x83a598"
-    magenta: "0xd3869b"
-    cyan: "0x8ec07c"
-    white: "0xebdbb2"
+# All characters after the first one in the hint label
+#
+# Allowed values are CellForeground/CellBackground, which reference the
+# affected cell, or hexadecimal colors like #ff00ff.
+#end:
+#  foreground: '#e9ff5e'
+#  background: '#1d1f21'
 
-  # Keyboard regex hints
-  #hints:
-  # First character in the hint label
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #start:
-  #  foreground: '#1d1f21'
-  #  background: '#e9ff5e'
+# Line indicator
+#
+# Color used for the indicator displaying the position in history during
+# search and vi mode.
+#
+# By default, these will use the opposing primary color.
+#line_indicator:
+#  foreground: None
+#  background: None
 
-  # All characters after the first one in the hint label
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #end:
-  #  foreground: '#e9ff5e'
-  #  background: '#1d1f21'
+# Selection colors
+#
+# Colors which should be used to draw the selection area.
+#
+# Allowed values are CellForeground/CellBackground, which reference the
+# affected cell, or hexadecimal colors like #ff00ff.
+#selection:
+#  text: CellBackground
+#  background: CellForeground
 
-  # Line indicator
-  #
-  # Color used for the indicator displaying the position in history during
-  # search and vi mode.
-  #
-  # By default, these will use the opposing primary color.
-  #line_indicator:
-  #  foreground: None
-  #  background: None
+# Normal colors
+#normal:
+#  black:   '#1d1f21'
+#  red:     '#cc6666'
+#  green:   '#b5bd68'
+#  yellow:  '#f0c674'
+#  blue:    '#81a2be'
+#  magenta: '#b294bb'
+#  cyan:    '#8abeb7'
+#  white:   '#c5c8c6'
 
-  # Selection colors
-  #
-  # Colors which should be used to draw the selection area.
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #selection:
-  #  text: CellBackground
-  #  background: CellForeground
+# Bright colors
+#bright:
+#  black:   '#666666'
+#  red:     '#d54e53'
+#  green:   '#b9ca4a'
+#  yellow:  '#e7c547'
+#  blue:    '#7aa6da'
+#  magenta: '#c397d8'
+#  cyan:    '#70c0b1'
+#  white:   '#eaeaea'
 
-  # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+# Dim colors
+#
+# If the dim colors are not set, they will be calculated automatically based
+# on the `normal` colors.
+#dim:
+#  black:   '#131415'
+#  red:     '#864343'
+#  green:   '#777c44'
+#  yellow:  '#9e824c'
+#  blue:    '#556a7d'
+#  magenta: '#75617b'
+#  cyan:    '#5b7d78'
+#  white:   '#828482'
 
-  # Bright colors
-  #bright:
-  #  black:   '#666666'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e7c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0b1'
-  #  white:   '#eaeaea'
+# Indexed Colors
+#
+# The indexed colors include all colors from 16 to 256.
+# When these are not set, they're filled with sensible defaults.
+#
+# Example:
+#   `- { index: 16, color: '#ff00ff' }`
+#
+#indexed_colors: []
 
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '#131415'
-  #  red:     '#864343'
-  #  green:   '#777c44'
-  #  yellow:  '#9e824c'
-  #  blue:    '#556a7d'
-  #  magenta: '#75617b'
-  #  cyan:    '#5b7d78'
-  #  white:   '#828482'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '#ff00ff' }`
-  #
-  #indexed_colors: []
-
-  # Transparent cell backgrounds
-  #
-  # Whether or not `window.opacity` applies to all cell backgrounds or only to
-  # the default background. When set to `true` all cells will be transparent
-  # regardless of their background color.
-  #transparent_background_colors: false
+# Transparent cell backgrounds
+#
+# Whether or not `window.opacity` applies to all cell backgrounds or only to
+# the default background. When set to `true` all cells will be transparent
+# regardless of their background color.
+#transparent_background_colors: false
 
 # Bell
 #
