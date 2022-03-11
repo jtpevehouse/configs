@@ -8,6 +8,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
+import XMonad.Actions.SpawnOn
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import qualified DBus as D
@@ -18,13 +19,15 @@ myTerminal = "alacritty"
 myModMask = mod4Mask
 
 -- Colours
-gray      = "#7F7F7F"
-gray2     = "#222222"
-red       = "#900000"
-blue      = "#2E9AFE"
-white     = "#eeeeee"
-myNormalBorderColor = "#98971A"
-myFocusedBorderColor    = "#689D6A"
+gray      = "#3B4252"
+gray2     = "#4C566A"
+red       = "#BF616A"
+blue      = "#88C0D0"
+white     = "#ECEFF4"
+myNormalBorderColor = "#5E81AC"
+myFocusedBorderColor    = "#A3BE8C"
+
+myWorkspaces = ["1","2","3","4","5","6","7","8","9"]
 
 myLayoutHook        = avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
@@ -41,8 +44,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
       -- media keys
       ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-      ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%"),
-      ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%"),
+      ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+      ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
 
       -- launch firefox
       ((modm .|. shiftMask, xK_b), spawn "firefox"),
@@ -69,7 +72,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_space ), sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+--    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -160,18 +163,19 @@ main = do
     D.requestName dbus (D.busName_ "org.xmonad.Log")
         [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
 
-    xmonad $ewmh $ docks $ defaults { logHook = dynamicLogWithPP (myLogHook dbus) }
+    xmonad $ ewmh $ docks $ defaults { logHook = dynamicLogWithPP (myLogHook dbus) }
 
 -- Override the PP values as you would otherwise, adding colors etc depending
 -- on  the statusbar used
 myLogHook :: D.Client -> PP
 myLogHook dbus = def
-    { ppOutput = dbusOutput dbus
+    { ppOrder = \(ws:l:t:_) -> [ws]
+    , ppOutput = dbusOutput dbus
     , ppCurrent = wrap ("%{F" ++ blue ++ "} ") " %{F-}"
     , ppVisible = wrap ("%{F" ++ gray ++ "} ") " %{F-}"
     , ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
     , ppHidden = wrap ("%{F" ++ gray ++ "} ") " %{F-}"
-    , ppTitle = wrap ("%{F" ++ gray2 ++ "} ") " %{F-}"
+    , ppTitle = wrap ("%{F" ++ gray2 ++ "} ") " %{F-}" . shorten 90
     }
 -- Emit a DBus signal on log updates
 dbusOutput :: D.Client -> String -> IO ()
@@ -187,14 +191,17 @@ dbusOutput dbus str = do
 
 defaults = def
     { terminal              = myTerminal,
+      workspaces            = myWorkspaces,
       modMask               = myModMask,
       normalBorderColor     = myNormalBorderColor,
       focusedBorderColor    = myFocusedBorderColor,
       borderWidth           = 3,
+      manageHook            = manageSpawn,
       keys                  = myKeys,
       layoutHook            = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myLayoutHook,
       startupHook           = myStartupHook
     }
+
 
 -----------------------------------------------------------------------------
 
