@@ -9,5 +9,6 @@
 - Status Bar: Polybar
 - Terminal Emulator: Alacritty
 - File System Manager: Thunar
+- Text Editor: Neo Vim
 - Lock Screen: Slock
 - Audio: Pulse Audio
