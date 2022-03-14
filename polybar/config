@@ -27,21 +27,27 @@
 ;alert = #CC241D
 
 ; NORD THEME
-background = #2E3440
+background = #002E3440
 background-alt = #4C566A
 foreground = #ECEFF4
 foreground-alt = #E5E9F0
 primary = #A3BE8C
 secondary = #B48EAD
 alert = #BF616A
+purple = #B48EAD
+green = #A3BE8C
+yellow = #EBCB8B
+orange = #D08770
+red = #BF616A
+frost1 = #8FBCBB 
+frost2 = #88C0D0
+frost3 = #81A1C1
+frost4 = #5E81AC
 
-[bar/mybar]
-width = 100%
+[bar/parent]
 height = 27
-radius = 0.0
-fixed-center = true
 
-background = #2E3440
+background = ${colors.background-alt}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -50,32 +56,61 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
-padding-right = 2
+module-margin = 1
 
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = JetBrainsMono Nerd Font:pixelsize=12;0
+font-0 = JetBrainsMono Nerd Font:pixelsize=12;2
 font-1 = FontAwesome:size=12;0
 
-modules-left = ewmh 
-modules-center = date
-modules-right = pulseaudio wlan battery 
-
-tray-position = right
-tray-padding = 2
-
 cursor-click = pointer
-cursor-scroll = ns-resize
+
+[bar/top-left]
+inherit = bar/parent
+;background = ${colors.background-alt}
+width = 18%
+offset-x = 8
+offset-y = 8 
+radius = 8 
+modules-center = ewmh 
+
+[bar/top-center]
+inherit = bar/parent
+;background = ${colors.frost1}
+width = 8%
+offset-x = 46%
+offset-y = 8
+radius = 8
+
+modules-center = date
+
+[bar/top-right]
+inherit = bar/parent
+;background = ${colors.frost4}
+offset-x = 75%:-8
+offset-y = 8
+width = 25%
+radius = 8 
+
+modules-center = pulseaudio wlan battery 
 
 [module/ewmh]
-type = custom/script
+type = internal/xworkspaces
 exec = xmonad-log
 
 tail = true
+enable-click = true 
 
-format-background = #2E3440
+format-background = ${colors.background-alt}
+label-active-foreground = ${colors.frost2}
+label-active-padding = 1
+label-occupied-foreground = ${colors.frost4}
+label-occupied-padding = 1
+label-urgent-padding = 1
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 1
+
+format=<label-state>
+label-monitor=%name%
+label-active=%name%
 
 [module/xwindow]
 type = internal/xwindow
@@ -101,12 +136,14 @@ label = %percentage_used%%
 type = internal/network
 interface = wlp58s0
 interval = 3.0
-format-underline = #8FBCBB
 
 label-connected =   %essid%
-label-connected-foreground = #A3BE8C
+label-connected-foreground = ${colors.green}
 label-disconnected =  
-label-disconnected-foreground = #D08770
+label-disconnected-foreground = ${colors.orange}
+
+format-connected-background = ${colors.background-alt}
+format-connected-padding = 2
 
 [module/date]
 type = internal/date
@@ -118,12 +155,12 @@ date-alt = " %Y-%m-%d"
 time = %I:%M %p
 time-alt = %I:%M %p
 
-format-prefix =  
-format-prefix-foreground = ${colors.foreground}
-#format-background = ${colors.background}
-format-underline = #8FBCBB
+format-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.background-alt}
+;format-background = ${colors.frost1}
 
 label = %date% %time%
+label-padding = 2
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -137,13 +174,13 @@ label-muted = muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #A3BE8C
-bar-volume-foreground-1 = #A3BE8C
-bar-volume-foreground-2 = #A3BE8C
-bar-volume-foreground-3 = #A3BE8C
-bar-volume-foreground-4 = #A3BE8C
-bar-volume-foreground-5 = #EBCB8B
-bar-volume-foreground-6 = #BF616A
+bar-volume-foreground-0 = ${colors.green}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.green}
+bar-volume-foreground-5 = ${colors.yellow}
+bar-volume-foreground-6 = ${colors.red}
 bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-indicator-font = 0
@@ -153,6 +190,9 @@ bar-volume-empty = 
 bar-volume-empty-font = 0 
 bar-volume-empty-foreground = #D8DEE9
 
+;format-volume-background = ${colors.frost4}
+format-volume-padding = 2
+
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -161,13 +201,16 @@ full-at = 98
 low-at = 15
 
 label-charging =  %percentage%%
-label-charging-foreground = #EBCB8B
+label-charging-foreground = ${colors.yellow}
 label-discharging =   %percentage%%
-label-discharging-foreground = #EBCB8B
+label-discharging-foreground = ${colors.yellow}
 label-full =  %percentage%%
-label-full-foreground = #A3BE8C
+label-full-foreground = ${colors.green}
 label-low =  %percentage%%
-label-low-foreground = #BF616A
+label-low-foreground = ${colors.red}
+
+format-charging-background = ${colors.frost2}
+;format-discharging-background = ${colors.frost4}
 
 [settings]
 screenchange-reload = true
@@ -179,6 +222,6 @@ screenchange-reload = true
 
 [global/wm]
 margin-top = 0
-margin-bottom = 0
+margin-bottom = 10 
 
 ; vim:ft=dosini

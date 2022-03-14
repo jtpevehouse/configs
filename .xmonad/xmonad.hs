@@ -6,9 +6,15 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.Minimize (minimizeEventHook)
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Actions.SpawnOn
+import XMonad.Layout.LayoutModifier(ModifiedLayout)
+import XMonad.Layout.Renamed (renamed, Rename(Replace))
+import XMonad.Layout.BoringWindows (boringWindows, focusUp, focusDown)
+import XMonad.Layout.Maximize (maximize, maximizeRestore)
+import XMonad.Layout.Minimize (minimize)
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import qualified DBus as D
@@ -29,7 +35,7 @@ myFocusedBorderColor    = "#A3BE8C"
 
 myWorkspaces = ["1","2","3","4","5","6","7","8","9"]
 
-myLayoutHook        = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayoutHook        = avoidStruts (tiled ||| renamed [Replace "Full"] ( smartBorders . maximize . minimize . boringWindows $ Full ))
   where
     tiled   = Tall nmaster delta ratio
     nmaster     = 1
@@ -198,8 +204,9 @@ defaults = def
       borderWidth           = 3,
       manageHook            = manageSpawn,
       keys                  = myKeys,
-      layoutHook            = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myLayoutHook,
-      startupHook           = myStartupHook
+      layoutHook            = spacingRaw False (Border 10 10 10 10) True (Border 10 10 10 10) True $ myLayoutHook,
+      startupHook           = myStartupHook,
+      handleEventHook       = fullscreenEventHook
     }
 
 
