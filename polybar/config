@@ -66,7 +66,7 @@ cursor-click = pointer
 [bar/top-left]
 inherit = bar/parent
 ;background = ${colors.background-alt}
-width = 18%
+width = 14%
 offset-x = 8
 offset-y = 8 
 radius = 8 
@@ -100,17 +100,24 @@ tail = true
 enable-click = true 
 
 format-background = ${colors.background-alt}
+
+label-active = %name%
 label-active-foreground = ${colors.frost2}
 label-active-padding = 1
+
+label-occupied = %name%
 label-occupied-foreground = ${colors.frost4}
 label-occupied-padding = 1
+
+label-urgent = %name%
 label-urgent-padding = 1
+
+label-empty = %name%
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
 
 format=<label-state>
 label-monitor=%name%
-label-active=%name%
 
 [module/xwindow]
 type = internal/xwindow
@@ -209,8 +216,8 @@ label-full-foreground = ${colors.green}
 label-low =  %percentage%%
 label-low-foreground = ${colors.red}
 
-format-charging-background = ${colors.frost2}
-;format-discharging-background = ${colors.frost4}
+;format-charging-background = ${colors.frost2}
+;format-discharging-background = ${colors.frost2}
 
 [settings]
 screenchange-reload = true
