@@ -461,7 +461,14 @@ shell:
   args:
     - --login
     - -c
-    - "tmux a || tmux new -d -s Home -n htop htop ENTER && tmux new-window -n dev -c ~/workspace && tmux new-window -n def && tmux a -t Home"
+    - "tmux a || \
+        tmux new -d -s Home -n dev -c ~/workspace && \
+        tmux send-keys -t Home:1 ll C-m && \
+        tmux split-window -v -c ~/workspace && \
+        tmux resize-pane -D 10 && \
+        tmux select-pane -U && \
+        tmux new-window -n def && \
+        tmux a -t Home"
 
 # Startup directory
 #
