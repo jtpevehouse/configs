@@ -16,7 +16,8 @@ Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -64,8 +65,49 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 """"""""""""""""""""
+" MARKDOWN PREVIEW "
+""""""""""""""""""""
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_browser = 'firefox'
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '${name}'
+let g:mkdp_filetypes = ['markdown']
+
+
+""""""""""""""""""""
 "      REMAPS      "
 """"""""""""""""""""
-nnoremap <F5> :NERDTreeToggle<CR>
+command! Difft  NERDTreeClose | windo diffthis
+command! Diffts diffoff! | NERDTree
+nnoremap <F1>   :noh<CR>
+nnoremap <F2>   :MarkdownPreview<CR>
+nnoremap <F3>   :MarkdownPreviewStop<CR>
+nnoremap <F5>   :NERDTreeToggle<CR>
+nnoremap <F9>   :Difft<CR>
+nnoremap <F10>  :Diffts<CR>
+nnoremap <F11>  :vertical resize -5<CR>
+nnoremap <F12>  :vertical resize +5<CR>
 inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
