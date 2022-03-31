@@ -24,15 +24,15 @@
 #TERM: alacritty
 
 window:
-  opacity: 0.8
+  opacity: 0.95
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  dimensions:
+    columns: 175
+    lines: 45
 
   # Window position (changes require restart)
   #
@@ -150,7 +150,7 @@ font:
   #style: Bold Italic
 
   # Point size
-  size: 7.0
+  size: 9
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -460,6 +460,9 @@ shell:
   program: /usr/bin/fish
   args:
     - --login
+    - -c
+    - "tmux a || tmux new -d -s Home -n htop htop ENTER && tmux new-window -n dev -c ~/workspace && tmux new-window -n def && tmux a -t Home"
+
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
