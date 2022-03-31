@@ -13,6 +13,7 @@
 - Vim commands to switch windows
 - "|" & "-" for splitting
 - Alt + num for window selection
+- Alt + arrows for resizing
 
 ### Fish
 - Set to nord colors
@@ -23,7 +24,7 @@
   - NerdTree
   - Lightline
   - Prettier
-  - CoC
+  - Treesitter
 
 ### Polybar
 - Designed for use with Xmonad
