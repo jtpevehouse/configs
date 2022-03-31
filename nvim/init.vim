@@ -17,6 +17,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -27,6 +28,42 @@ call plug#end()
 set termguicolors
 set background=dark
 colorscheme nord
+
+""""""""""""""""""""
+"    TREE SITTER   "
+""""""""""""""""""""
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = true,
+    disable = {},
+  },
+  ensure_installed = {
+    "bash",
+    "fish",
+    "php",
+    "json",
+    "yaml",
+    "html",
+    "css",
+    "go",
+    "java",
+    "javascript",
+    "python",
+    "typescript"
+  },
+  autotag = {
+    enable = true,
+  }
+}
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+EOF
 
 """"""""""""""""""""
 "   TREE STATUS    "
