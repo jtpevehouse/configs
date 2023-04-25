@@ -10,15 +10,17 @@
 """"""""""""""""""""
 call plug#begin()
 
-" Plug 'ellisonleao/gruvbox.nvim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'ellisonleao/gruvbox.nvim'
+" Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mechatroner/rainbow_csv'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mhartington/formatter.nvim'
 
 call plug#end()
 
@@ -27,7 +29,7 @@ call plug#end()
 """"""""""""""""""""
 set termguicolors
 set background=dark
-colorscheme nord
+colorscheme gruvbox
 
 """"""""""""""""""""
 "    TREE SITTER   "
@@ -84,7 +86,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 """"""""""""""""""""
 "     LIGHTLINE    "
 """"""""""""""""""""
-let g:lightline = { 'colorscheme': 'nord'}
+let g:lightline = { 'colorscheme': 'gruvbox'}
 
 """"""""""""""""""""
 "    PRETTIER      "
@@ -131,6 +133,17 @@ let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
 let g:mkdp_page_title = '${name}'
 let g:mkdp_filetypes = ['markdown']
+
+""""""""""""""""""""
+"      NERD TREE   "
+""""""""""""""""""""
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+""""""""""""""""""""
+"      FORMATTER   "
+""""""""""""""""""""
 
 
 """"""""""""""""""""
