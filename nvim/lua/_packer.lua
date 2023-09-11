@@ -21,35 +21,41 @@ packer.init({
 packer.startup(function()
 	local use = use
 
-	use({ "ellisonleao/gruvbox.nvim" })
-	use({ "prettier/vim-prettier", run = "yarn install" })
+	use("ellisonleao/gruvbox.nvim")
+	use("nvim-tree/nvim-web-devicons")
+	use("m4xshen/autoclose.nvim")
+	use("ecthelionvi/NeoColumn.nvim")
+	use("lewis6991/gitsigns.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
+
+	use({
+		"prettier/vim-prettier",
+		run = "yarn install",
+	})
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
 	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("nvim-tree").setup({})
-		end,
-	})
-	use({ "nvim-tree/nvim-web-devicons" })
-	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
-		"neanias/everforest-nvim",
-		-- Optional; default configuration will be used if setup isn't called.
-		config = function()
-			require("everforest").setup()
-		end,
-	})
-	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use({
+		"nvim-telescope/telescope-file-browser.nvim",
+		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	})
+	use({
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
 	})
 end)
