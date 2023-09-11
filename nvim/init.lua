@@ -2,7 +2,6 @@
 require("_packer")
 require("_color_scheme")
 require("_tree_sitter")
-require("_null_ls")
 require("_lualine")
 require("_telescope")
 require("_nvim_tree")
@@ -10,6 +9,7 @@ require("_autoclose")
 require("_neocolumn")
 require("_gitsigns")
 require("_indent_blankline")
+require("_lspconfig")
 
 -- REMAPS
 require("_remaps")

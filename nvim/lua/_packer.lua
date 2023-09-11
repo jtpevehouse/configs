@@ -27,7 +27,15 @@ packer.startup(function()
 	use("ecthelionvi/NeoColumn.nvim")
 	use("lewis6991/gitsigns.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("neovim/nvim-lspconfig")
+	use("mhartington/formatter.nvim")
 
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
 	use({
 		"prettier/vim-prettier",
 		run = "yarn install",
@@ -35,10 +43,6 @@ packer.startup(function()
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-	})
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
 		"nvim-lualine/lualine.nvim",

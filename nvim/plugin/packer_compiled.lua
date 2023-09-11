@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
     url = "https://github.com/m4xshen/autoclose.nvim"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -104,10 +109,25 @@ _G.packer_plugins = {
     path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/pevehousejosh/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
