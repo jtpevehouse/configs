@@ -4,7 +4,7 @@ local config = {
 	NeoColumn = "120",
 	always_on = true,
 	custom_NeoColumn = {},
-	excluded_ft = { "text", "markdown" },
+	excluded_ft = { "text", "markdown", "csv" },
 }
 
 require("NeoColumn").setup(config)
