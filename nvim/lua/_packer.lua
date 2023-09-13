@@ -22,26 +22,28 @@ packer.startup(function()
 	local use = use
 
 	use("ellisonleao/gruvbox.nvim")
+	use("shaunsingh/nord.nvim")
 	use("nvim-tree/nvim-web-devicons")
 	use("m4xshen/autoclose.nvim")
 	use("ecthelionvi/NeoColumn.nvim")
 	use("lewis6991/gitsigns.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig")
-	use("mhartington/formatter.nvim")
 
+	use({
+		"neovim/nvim-lspconfig",
+		requires = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim" }
+	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
-		"prettier/vim-prettier",
-		run = "yarn install",
-	})
-	use({
 		"nvim-treesitter/nvim-treesitter",
+		requires = {
+			'nvim-treesitter/nvim-treesitter-textobjects',
+		},
 		run = ":TSUpdate",
 	})
 	use({
