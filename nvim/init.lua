@@ -10,6 +10,7 @@ require("_lspconfig")
 require("_null_ls")
 require("_gruv_cs")
 require("_indent_blankline")
+require("_which_key")
 
 -- REMAPS
 require("_remaps")
