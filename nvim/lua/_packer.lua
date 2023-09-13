@@ -33,7 +33,8 @@ packer.startup(function()
 		"neovim/nvim-lspconfig",
 		requires = {
 			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim" }
+			"williamboman/mason-lspconfig.nvim",
+		},
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
@@ -42,7 +43,7 @@ packer.startup(function()
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		requires = {
-			'nvim-treesitter/nvim-treesitter-textobjects',
+			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 		run = ":TSUpdate",
 	})

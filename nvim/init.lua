@@ -8,7 +8,7 @@ require("_neocolumn")
 require("_gitsigns")
 require("_lspconfig")
 require("_null_ls")
-require("_nord_cs")
+require("_gruv_cs")
 require("_indent_blankline")
 
 -- REMAPS
@@ -21,6 +21,6 @@ set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
 set.mouse = ""
-vim.o.clipboard = "unnamedplus"
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
+vim.highlight.priorities.semantic_tokens = 95
