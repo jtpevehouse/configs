@@ -1,5 +1,5 @@
 -- PLUGINS
-require("_packer")
+require("_lazy")
 require("_tree_sitter")
 require("_telescope")
 require("_nvim_tree")

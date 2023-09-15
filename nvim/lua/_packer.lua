@@ -29,6 +29,7 @@ packer.startup(function()
 	use("lewis6991/gitsigns.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("folke/which-key.nvim")
+
 	use({
 		"neovim/nvim-lspconfig",
 		requires = {
