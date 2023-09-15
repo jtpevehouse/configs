@@ -1,3 +1,4 @@
+-- INSTALL LSP SERVERS
 local language_servers = {
 	"lua_ls",
 	"bashls",
@@ -9,22 +10,73 @@ local language_servers = {
 	"jsonls",
 	"marksman",
 	"yamlls",
-	"pyright",
+	"jedi_language_server",
 	"pkgbuild_language_server",
 }
 
 require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = language_servers,
-	"beautysh",
-	"prettier",
+require("mason-lspconfig").setup({ ensure_installed = language_servers })
+
+-- INSTALL FORMATTERS
+local formatters = {
 	"stylua",
+	"beautysh",
+	"black",
+	"prettier",
+}
+require("mason-null-ls").setup({
+	ensure_installed = formatters,
 })
 
+-- AUTOCOMPLETE
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local luasnip = require("luasnip")
+local cmp = require("cmp")
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
+		["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
+		-- C-b (back) C-f (forward) for snippet placeholder navigation.
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+	}),
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+	},
+})
+
+-- SETUP LSP CONFIG
 local nvim_lsp = require("lspconfig")
 
---  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(client, bufnr)
+-- LSP FUNCTION WHEN ATTACHED TO BUFFER
+local on_attach = function(_, bufnr)
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = "LSP: " .. desc
@@ -52,11 +104,13 @@ local on_attach = function(client, bufnr)
 	end, { desc = "Format current buffer with LSP" })
 end
 
+-- SET UP LSP SERVERS
 for _, lsp in ipairs(language_servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
 		flags = {
 			debounce_text_changes = 150,
 		},
+		capabilities = capabilities,
 	})
 end

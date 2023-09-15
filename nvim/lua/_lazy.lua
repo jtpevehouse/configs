@@ -21,11 +21,23 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim", lazy = true }, -- MARK CHANGES IN GIT REPOS
 	{ "lukas-reineke/indent-blankline.nvim", lazy = true }, -- COLORED INDENTATION MARKERS
 	{ "folke/which-key.nvim", lazy = true }, -- MENU TO HELP WITH KEYMAPS
+	{ "hrsh7th/nvim-cmp" }, -- Autocompletion plugin
+	{ "hrsh7th/cmp-nvim-lsp" }, -- LSP source for nvim-cmp
+	{ "saadparwaiz1/cmp_luasnip" }, -- Snippets source for nvim-cmp
+	{"L3MON4D3/LuaSnip"},
 	{ -- LSP CONFIGURATION
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+		},
+	},
+	{ -- MASON NULL-LS INTEGRATION
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
 		},
 	},
 	{ -- CODE FORMATTING
@@ -37,6 +49,7 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
+		lazy = true,
 		run = ":TSUpdate",
 	},
 	{ -- STATUS LINE
