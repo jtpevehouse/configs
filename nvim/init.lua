@@ -8,6 +8,7 @@ require("_gitsigns")
 require("_lspconfig")
 require("_null_ls")
 require("_which_key")
+require("_comment")
 
 -- REMAPS
 require("_remaps")
@@ -25,3 +26,5 @@ set.mouse = ""
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.highlight.priorities.semantic_tokens = 95
+set.textwidth = 120
+set.colorcolumn = "+1"

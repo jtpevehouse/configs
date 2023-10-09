@@ -35,15 +35,3 @@ require("indent_blankline").setup({
 		"IndentBlanklineIndent5",
 	},
 })
-
--- NEOCOLUMN
-local column_config = {
-	fg_color = "#BF616A",
-	bg_color = "#ECEFF4",
-	NeoColumn = "120",
-	always_on = true,
-	custom_NeoColumn = {},
-	excluded_ft = { "text", "markdown", "csv" },
-}
-
-require("NeoColumn").setup(column_config)
