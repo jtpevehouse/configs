@@ -14,8 +14,15 @@ alias 'pc'='podman-compose'
 # CUSTOM KEYBINDINGS
 bind \en 'nnn -C; commandline -f repaint'
 
-# SET EDITOR TO OPEN ON ALT E
+# SET EDITOR NVIM
 set -gx EDITOR nvim
+
+# SET PROMPT COLORS
+set -g hydro_color_pwd b8bb26
+set -g hydro_color_git 8ec07c
+set -g hydro_color_error fb4934
+set -g hydro_color_prompt b8bb26
+set -g hydro_color_duration fe8019
 
 # NNN CD ON EXIT
 function nnn --wraps nnn --description 'support nnn quit and change directory'
