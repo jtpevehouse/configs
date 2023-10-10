@@ -65,9 +65,7 @@ fi
 
 # COPY CONFIG FILES TO LOCAL MACHINE
 printf "Copying configs to local machine . . .\n\n"
-cp -r fish/ ~/.config/
-cp -r nvim/ ~/.config/
-cp tmux/tmux.conf ~/.tmux.conf
+$WORKSPACE/configs/scripts/copy_configs.sh -ly
 
 # SET FISH AS ACTIVE SHELL FOR USER
 if [[ $SHELL != "/usr/bin/fish" ]]; then
