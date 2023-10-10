@@ -1,14 +1,23 @@
+# CLEAR GREETING
 set fish_greeting
+
+# SET THEME
 theme_gruvbox dark medium
 
+# CUSTOM ALIASES
 alias 'nv'='nvim'
 alias 'll'='ls -lha'
 alias 'n'='nnn -C'
 alias 'vsc'='code .'
 alias 'pc'='podman-compose'
 
+# CUSTOM KEYBINDINGS
+bind \en 'nnn -C; commandline -f repaint'
+
+# SET EDITOR TO OPEN ON ALT E
 set -gx EDITOR nvim
 
+# NNN CD ON EXIT
 function nnn --wraps nnn --description 'support nnn quit and change directory'
     # Block nesting of nnn in subshells
     if test -n "$NNNLVL" -a "$NNNLVL" -ge 1
