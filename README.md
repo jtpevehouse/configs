@@ -1,14 +1,28 @@
-# INSTALLATION
+# Overview
 
-## Debian systems
+This maintains current tools and plugins used for my daily dev workflow
+<br>
+Tools maintained:
 
-Run `install_configs_deb.sh`
+- Alacritty: terminal emulator
+- Fish: shell
+- Neovim: text editor
+- Tmux: terminal window manager
 
-# This will:
+# Usage
 
-1. Install
-   - Tmux & plugins
-   - Fish & plugins
-   - NeoVim
-2. Configure local machine
-3. Set Fish as active shell
+## Install all configs
+
+Run `scripts/install_configs_deb.sh`
+
+## Install fish plugins
+
+Run `scripts/install_fisher.fish`
+
+## Copy local changes to git repo
+
+Run `scripts/cp_local_to_git.sh`
+
+## Copy git repo to local
+
+Run `scripts/cp_git_to_local.sh`

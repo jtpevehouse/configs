@@ -51,7 +51,7 @@ sudo make strip install
 cd $WORKSPACE
 
 # INSTALL FISHER AND PLUGINS
-fish $WORKSPACE/configs/install_fisher.fish
+fish $WORKSPACE/configs/scripts/install_fisher.fish
 
 # PULL DOWN OR UPDATE CONFIGS
 if [ ! -d "$WORKSPACE/configs" ]; then
