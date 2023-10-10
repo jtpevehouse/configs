@@ -34,6 +34,20 @@ else
     git pull
 fi
 
+# INSTALL OR UPDATE NNN FILE MANAGER
+printf "\nInstalling NNN File Manager . . .\n\n"
+NNN_TARBALL="nnn.tar.gz"
+NNN_RELEASE="nnn_release_unzip"
+mkdir $NNN_RELEASE
+NNN_DOWNLOAD_URL=$(curl -s https://api.github.com/repos/jarun/nnn/releases/latest \
+    | grep "download_url.*nnn-v.*\.tar\.gz"| cut -d '"' -f 4)
+wget $NNN_DOWNLOAD_URL -O $NNN_TARBALL
+tar -xvf $NNN_TARBALL -C $NNN_RELEASE --strip-components=1
+cd $NNN_RELEASE
+sudo apt-get install pkg-config libncursesw5-dev libreadline-dev
+sudo make strip install
+
+# CONFIGURE LOCAL ENVIRONMENT
 cd $WORKSPACE
 
 # INSTALL FISHER AND PLUGINS
