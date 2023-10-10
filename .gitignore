@@ -1,2 +1,7 @@
 nnn.tar.gz
 nnn_release/
+fish/conf.d/
+fish/functions/
+fish/themes/
+fish/fish_variables
+fish/fish_plugins
