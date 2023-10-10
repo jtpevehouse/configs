@@ -1,8 +1,6 @@
 # Overview
 
 This maintains current tools and plugins used for my daily dev workflow
-<br>
-Tools maintained:
 
 - Alacritty: terminal emulator
 - Fish: shell
@@ -19,10 +17,14 @@ Run `scripts/install_configs_deb.sh`
 
 Run `scripts/install_fisher.fish`
 
-## Copy local changes to git repo
+## Copy configs
 
-Run `scripts/cp_local_to_git.sh`
+Run `scripts/copy_configs.sh`
 
-## Copy git repo to local
+```
+copy_configs.sh -l
+    copy configs from ~/workspace to ~/.config
 
-Run `scripts/cp_git_to_local.sh`
+copy_configs.sh -h
+    copy configs from ~/.config to ~/workspace
+```
