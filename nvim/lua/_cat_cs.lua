@@ -38,11 +38,10 @@ require("catppuccin").setup({
 		treesitter = true,
 		notify = false,
 		mini = false,
-		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 	},
 })
 
--- setup must be called before loading
+vim.o.background = "dark"
 vim.cmd.colorscheme("catppuccin")
 
 -- LUALINE
@@ -50,15 +49,15 @@ require("lualine").setup({ options = { theme = "catppuccin" } })
 
 -- INDENT BLANKLINE
 vim.opt.termguicolors = true
-vim.cmd([[highlight IndentBlanklineIndent1 guifg=#f5c2e7 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent2 guifg=#cba6f7 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent3 guifg=#f38ba8 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent4 guifg=#eba0ac gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent5 guifg=#fab387 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent6 guifg=#f9e2af gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent7 guifg=#a6e3a1 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineContextChar guifg=#f5e0dc gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineContextSpaceChar guifg=#f5e0dc gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent1 guifg=#eba0ac gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent2 guifg=#fab387 gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent3 guifg=#f9e2af gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent4 guifg=#a6e3a1 gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent5 guifg=#94e2d5 gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent6 guifg=#89dceb gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent7 guifg=#74c7ec gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineContextChar guifg=#89b4fa gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineContextSpaceChar guifg=#89b4fa gui=nocombine]])
 
 require("indent_blankline").setup({
 	show_current_context = true,
@@ -74,3 +73,15 @@ require("indent_blankline").setup({
 		"IndentBlanklineIndent7",
 	},
 })
+
+-- NEOCOLUMN
+local config = {
+	fg_color = "#f5e0dc",
+	bg_color = "#f38ba8",
+	NeoColumn = "120",
+	always_on = true,
+	custom_NeoColumn = {},
+	excluded_ft = { "text", "markdown", "csv" },
+}
+
+require("NeoColumn").setup(config)

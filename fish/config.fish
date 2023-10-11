@@ -1,9 +1,6 @@
 # CLEAR GREETING
 set fish_greeting
 
-# SET THEME
-theme_gruvbox dark medium
-
 # CUSTOM ALIASES
 alias 'nv'='nvim'
 alias 'll'='ls -lha'
@@ -18,11 +15,18 @@ bind \en 'nnn -C; commandline -f repaint'
 set -gx EDITOR nvim
 
 # SET PROMPT COLORS
-set -g hydro_color_pwd b8bb26
-set -g hydro_color_git 8ec07c
-set -g hydro_color_error fb4934
-set -g hydro_color_prompt b8bb26
-set -g hydro_color_duration fe8019
+# GRUVBOX
+# set -g hydro_color_pwd b8bb26
+# set -g hydro_color_git 8ec07c
+# set -g hydro_color_error fb4934
+# set -g hydro_color_prompt b8bb26
+# set -g hydro_color_duration fe8019
+# CATPPUCCIN
+set -g hydro_color_pwd a6e3a1
+set -g hydro_color_git cba6f7
+set -g hydro_color_error f38ba8
+set -g hydro_color_prompt a6e3a1
+set -g hydro_color_duration f9e2af
 
 # NNN CD ON EXIT
 function nnn --wraps nnn --description 'support nnn quit and change directory'
