@@ -264,28 +264,108 @@ font:
 #    white: "0xebdbb2"
 
 # EVERFOREST THEME
+#colors:
+#  primary:
+#    background: "#2d353b"
+#    foreground: "#d3c6aa"
+#  normal:
+#    black: "#475258"
+#    red: "#e67e80"
+#    green: "#a7c080"
+#    yellow: "#dbbc7f"
+#    blue: "#7fbbb3"
+#    magenta: "#d699b6"
+#    cyan: "#83c092"
+#    white: "#d3c6aa"
+#  bright:
+#    black: "#475258"
+#    red: "#e67e80"
+#    green: "#a7c080"
+#    yellow: "#dbbc7f"
+#    blue: "#7fbbb3"
+#    magenta: "#d699b6"
+#    cyan: "#83c092"
+#    white: "#d3c6aa"
+
+# CATPPUCCIN THEME
 colors:
   primary:
-    background: "#2d353b"
-    foreground: "#d3c6aa"
+    background: "#1E1E2E" # base
+    foreground: "#CDD6F4" # text
+    # Bright and dim foreground colors
+    dim_foreground: "#CDD6F4" # text
+    bright_foreground: "#CDD6F4" # text
+
+  # Cursor colors
+  cursor:
+    text: "#1E1E2E" # base
+    cursor: "#F5E0DC" # rosewater
+  vi_mode_cursor:
+    text: "#1E1E2E" # base
+    cursor: "#B4BEFE" # lavender
+
+  # Search colors
+  search:
+    matches:
+      foreground: "#1E1E2E" # base
+      background: "#A6ADC8" # subtext0
+    focused_match:
+      foreground: "#1E1E2E" # base
+      background: "#A6E3A1" # green
+    footer_bar:
+      foreground: "#1E1E2E" # base
+      background: "#A6ADC8" # subtext0
+
+  # Keyboard regex hints
+  hints:
+    start:
+      foreground: "#1E1E2E" # base
+      background: "#F9E2AF" # yellow
+    end:
+      foreground: "#1E1E2E" # base
+      background: "#A6ADC8" # subtext0
+
+  # Selection colors
+  selection:
+    text: "#1E1E2E" # base
+    background: "#F5E0DC" # rosewater
+
+  # Normal colors
   normal:
-    black: "#475258"
-    red: "#e67e80"
-    green: "#a7c080"
-    yellow: "#dbbc7f"
-    blue: "#7fbbb3"
-    magenta: "#d699b6"
-    cyan: "#83c092"
-    white: "#d3c6aa"
+    black: "#45475A" # surface1
+    red: "#F38BA8" # red
+    green: "#A6E3A1" # green
+    yellow: "#F9E2AF" # yellow
+    blue: "#89B4FA" # blue
+    magenta: "#F5C2E7" # pink
+    cyan: "#94E2D5" # teal
+    white: "#BAC2DE" # subtext1
+
+  # Bright colors
   bright:
-    black: "#475258"
-    red: "#e67e80"
-    green: "#a7c080"
-    yellow: "#dbbc7f"
-    blue: "#7fbbb3"
-    magenta: "#d699b6"
-    cyan: "#83c092"
-    white: "#d3c6aa"
+    black: "#585B70" # surface2
+    red: "#F38BA8" # red
+    green: "#A6E3A1" # green
+    yellow: "#F9E2AF" # yellow
+    blue: "#89B4FA" # blue
+    magenta: "#F5C2E7" # pink
+    cyan: "#94E2D5" # teal
+    white: "#A6ADC8" # subtext0
+
+  # Dim colors
+  dim:
+    black: "#45475A" # surface1
+    red: "#F38BA8" # red
+    green: "#A6E3A1" # green
+    yellow: "#F9E2AF" # yellow
+    blue: "#89B4FA" # blue
+    magenta: "#F5C2E7" # pink
+    cyan: "#94E2D5" # teal
+    white: "#BAC2DE" # subtext1
+
+  indexed_colors:
+    - { index: 16, color: "#FAB387" }
+    - { index: 17, color: "#F5E0DC" }
 
 # Keyboard regex hints
 #hints:
@@ -481,17 +561,6 @@ colors:
 #   - (Windows) powershell
 shell:
   program: /usr/bin/fish
-  args:
-    - --login
-    - -c
-    - "tmux a || \
-      tmux new -d -s Home -n dev -c ~/workspace && \
-      tmux send-keys -t Home:1 ll C-m && \
-      tmux split-window -v -c ~/workspace && \
-      tmux resize-pane -D 10 && \
-      tmux select-pane -U && \
-      tmux new-window -n def && \
-      tmux a -t Home"
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
