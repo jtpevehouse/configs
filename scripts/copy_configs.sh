@@ -68,7 +68,7 @@ CONTINUE=$(confirm_update $DEST_DIR $SRC_DIR)
 if [[ $CONTINUE == "yes" ]]; then
     echo "Updating local configs . . ."
     cp -rf $SRC_DIR/fish/ $SRC_DIR/nvim $DEST_DIR
-    yes | cp -i $SRC_DIR/alacritty/alacritty.yml $DEST_DIR/alacritty
+    yes | cp -i $SRC_DIR/alacritty/* $DEST_DIR/alacritty
     yes | cp -i $TMUX_SRC $TMUX_DEST
     echo "Done!"
 elif [[ $CONTINUE == "invalid response" ]]; then
