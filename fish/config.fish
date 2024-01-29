@@ -16,17 +16,17 @@ set -gx EDITOR nvim
 
 # SET PROMPT COLORS
 # GRUVBOX
-# set -g hydro_color_pwd b8bb26
-# set -g hydro_color_git 8ec07c
-# set -g hydro_color_error fb4934
-# set -g hydro_color_prompt b8bb26
-# set -g hydro_color_duration fe8019
+set -g hydro_color_pwd b8bb26
+set -g hydro_color_git 8ec07c
+set -g hydro_color_error fb4934
+set -g hydro_color_prompt b8bb26
+set -g hydro_color_duration fe8019
 # CATPPUCCIN
-set -g hydro_color_pwd a6e3a1
-set -g hydro_color_git cba6f7
-set -g hydro_color_error f38ba8
-set -g hydro_color_prompt a6e3a1
-set -g hydro_color_duration f9e2af
+# set -g hydro_color_pwd a6e3a1
+# set -g hydro_color_git cba6f7
+# set -g hydro_color_error f38ba8
+# set -g hydro_color_prompt a6e3a1
+# set -g hydro_color_duration f9e2af
 
 # NNN CD ON EXIT
 function nnn --wraps nnn --description 'support nnn quit and change directory'
@@ -51,8 +51,8 @@ function nnn --wraps nnn --description 'support nnn quit and change directory'
 end
 
 # LAUNCH TMUX BY DEFAULT
-if not set -q TMUX
-    set -g TMUX tmux new-session -d -s home
-    eval $TMUX
-    tmux attach-session -d -t home 
-end
+#if not set -q TMUX
+#    set -g TMUX tmux new-session -d -s home
+#    eval $TMUX
+#    tmux attach-session -d -t home 
+#end
