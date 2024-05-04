@@ -14,7 +14,7 @@ require("_comment")
 require("_remaps")
 
 -- COLOR SCHEME
-require("_catp_cs")
+require("_gruv_cs")
 
 -- OPTIONS
 local set = vim.opt

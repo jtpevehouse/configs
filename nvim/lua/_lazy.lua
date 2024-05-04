@@ -16,7 +16,7 @@ vim.g.mapleader = " "
 require("lazy").setup({
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 }, -- COLOR SCHEME
 	{ "shaunsingh/nord.nvim", priority = 1000 }, -- COLOR SCHEME
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- COLOR SCHEME
+	{ "Mofiqul/dracula.nvim", priority = 1000 }, -- COLOR SCHEME
 	{ "m4xshen/autoclose.nvim", lazy = true }, -- AUTO CLOSE SYMBOLS
 	{ "lewis6991/gitsigns.nvim", lazy = true }, -- MARK CHANGES IN GIT REPOS
 	{ "lukas-reineke/indent-blankline.nvim", lazy = true }, -- COLORED INDENTATION MARKERS
