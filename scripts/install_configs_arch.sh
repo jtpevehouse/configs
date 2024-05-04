@@ -44,8 +44,3 @@ if [[ $SHELL != "/usr/bin/fish" ]]; then
     printf "\nSetting fish as active shell . . .\n\n"
     chsh -s /usr/bin/fish
 fi
-
-# INSTALL HYPRLAND
-printf "Installing and configuring Hyprland"
-sudo pacman -S hyprland dunst pipewire wireplumber xdg-desktop-portal-hyprland \
-	xdg-desktop-portal-wlr qt5-wayland qt6-wayland
