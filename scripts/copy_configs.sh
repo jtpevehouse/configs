@@ -29,15 +29,15 @@ confirm_update(){
 while getopts "lwhy" OPTION; do
     case "$OPTION" in
         l)
-            DEST_DIR="$HOME/.config"
             SRC_DIR="$HOME/workspace/configs"
+            DEST_DIR="$HOME/.config"
             TMUX_SRC="$SRC_DIR/tmux/tmux.conf"
             TMUX_DEST="$HOME/.tmux.conf"
             UPDATE_LOCAL=1
             ;;
         w)
-            DEST_DIR="$HOME/workspace/configs"
             SRC_DIR="$HOME/.config"
+            DEST_DIR="$HOME/workspace/configs"
             TMUX_SRC="$HOME/.tmux.conf"
             TMUX_DEST="$DEST_DIR/tmux/tmux.conf"
             UPDATE_WORKSPACE=1
@@ -64,11 +64,15 @@ if [[ -z "$DEST_DIR" ]]; then
     exit 0
 fi
 
+configsToTrack=("alacritty" "fish" "hypr" "kitty" "nvim" "waybar")
+
 CONTINUE=$(confirm_update $DEST_DIR $SRC_DIR)
 if [[ $CONTINUE == "yes" ]]; then
-    echo "Updating local configs . . ."
-    cp -rf $SRC_DIR/fish/ $SRC_DIR/nvim $DEST_DIR
-    yes | cp -i $SRC_DIR/alacritty/* $DEST_DIR/alacritty
+    echo "Updating configs . . ."
+	for config in "${configsToTrack[@]}"
+	do
+		yes | cp -ir $SRC_DIR/$config $DEST_DIR/
+	done
     yes | cp -i $TMUX_SRC $TMUX_DEST
     echo "Done!"
 elif [[ $CONTINUE == "invalid response" ]]; then
