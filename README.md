@@ -2,16 +2,28 @@
 
 This maintains current tools and plugins used for my daily dev workflow
 
-- Alacritty: terminal emulator
+- Kitty: terminal emulator
 - Fish: shell
 - Neovim: text editor
 - Tmux: terminal window manager
+- Hypr: Hypr environment
+  - Hyprland: tiling window manager
+  - Hypridle: idle daemon
+  - Hyprlock: lock screen
+  - Hyprpaper: wallpaper
+- waybar: status bar for Wayland
 
 # Usage
 
 ## Install all configs
 
+### Debian
+
 Run `scripts/install_configs_deb.sh`
+
+### Arch
+
+Run `scripts/install_configs_arch.sh`
 
 ## Install fish plugins
 

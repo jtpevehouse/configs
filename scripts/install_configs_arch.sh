@@ -7,7 +7,7 @@ cd $WORKSPACE
 
 # INSTALL DEPENDENCIES AND TOOLS
 printf "\nInstalling dependencies and tools. . .\n\n"
-sudo pacman -S fish tmux nnn neovim
+sudo pacman -S fish tmux nnn neovim kitty
 
 # INSTALL OR UPDATE TPM
 if [ -d "~/.tmux/plugins/tpm" ]; then
@@ -44,3 +44,8 @@ if [[ $SHELL != "/usr/bin/fish" ]]; then
     printf "\nSetting fish as active shell . . .\n\n"
     chsh -s /usr/bin/fish
 fi
+
+# INSTALL HYPRLAND
+printf "Installing and configuring Hyprland"
+sudo pacman -S hyprland dunst pipewire wireplumber xdg-desktop-portal-hyprland \
+	xdg-desktop-portal-wlr qt5-wayland qt6-wayland
