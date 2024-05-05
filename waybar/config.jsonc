@@ -111,10 +111,6 @@
     "format": "{icon}",
     "disable-scroll": true,
     "on-click": "activate",
-    "format-icons": {
-      "default": "",
-      "active": ""
-    },
     "persistent-workspaces": {
       "1": [],
       "2": [],
