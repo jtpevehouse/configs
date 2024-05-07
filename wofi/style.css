@@ -1,0 +1,26 @@
+window {
+  margin: 0.3rem;
+  border: 0.2rem solid #98971a;
+  background-color: #282828;
+  border-radius: 0.5rem;
+  opacity: 0.9;
+}
+
+#scroll {
+  margin: 0.3rem;
+  border: 0.1rem solid #d65d0e;
+  background-color: #504945;
+  border-radius: 0.5rem;
+}
+
+#input {
+  margin: 0.3rem;
+  border: 0.1rem solid #d65d0e;
+  background-color: #504945;
+  border-radius: 0.5rem;
+}
+
+#outer-box {
+  margin: 0.3rem;
+  background-color: #282828;
+}

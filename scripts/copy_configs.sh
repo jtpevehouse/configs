@@ -64,7 +64,7 @@ if [[ -z "$DEST_DIR" ]]; then
     exit 0
 fi
 
-configsToTrack=("alacritty" "fish" "hypr" "kitty" "nvim" "waybar")
+configsToTrack=("alacritty" "fish" "hypr" "kitty" "nvim" "waybar" "wofi")
 
 CONTINUE=$(confirm_update $DEST_DIR $SRC_DIR)
 if [[ $CONTINUE == "yes" ]]; then
