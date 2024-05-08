@@ -9,12 +9,13 @@ require("_lspconfig")
 require("_null_ls")
 require("_which_key")
 require("_comment")
+require("_lualine")
 
 -- REMAPS
 require("_remaps")
 
 -- COLOR SCHEME
-require("_gruv_cs")
+require("_everforest_cs")
 
 -- OPTIONS
 local set = vim.opt
