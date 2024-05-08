@@ -9,6 +9,7 @@
 | [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim)                                  | Color Scheme                                   |
 | [Nord](https://github.com/shaunsingh/nord.nvim)                                         | Color Scheme                                   |
 | [Catppuccin](https://github.com/catppuccin/nvim)                                        | Color Scheme                                   |
+| [Everforest](https://github.com/neanias/everforest-nvim)                                | Color Scheme                                   |
 | [Autoclose](https://github.com/m4xshen/autoclose.nvim)                                  | Auto close pairings for quotes, brackets, etc. |
 | [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)                                  | Show git changes in buffer                     |
 | [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)              | Show tab spaces                                |
@@ -25,6 +26,7 @@
 | [Mason Null LS](https://github.com/jay-babu/mason-null-ls.nvim)                         | Easily install formatters with Mason           |
 | [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)                        | Code highlighting                              |
 | [Lualine](https://github.com/nvim-lualine/lualine.nvim)                                 | Status Line                                    |
+| [Git-Blame](https://github.com/f-person/git-blame.nvim)                                 | Git blame                                      |
 | [Telescope](https://github.com/nvim-telescope/telescope.nvim)                           | File searching                                 |
 | [Telescope File Browser](https://github.com/nvim-telescope/telescope-file-browser.nvim) | File browser for telescope                     |
 | [NVIM Tree](https://github.com/nvim-tree/nvim-tree.lua)                                 | File explorer panel                            |
@@ -35,7 +37,6 @@
 | --- | ------------------------------ |
 | F1  | Clear highlighting             |
 | F2  | Toggle comment on one line     |
-| F3  | Toggle comment on selection    |
 | F4  | Open current file in Nvim Tree |
 | F5  | Toggle Nvim Tree               |
 | F6  | Set file type to Ansible       |
@@ -47,3 +48,4 @@
 | fg  | Find text in files             |
 | fh  | Open help panel                |
 | fb  | Open file browser              |
+| gc  | Toggle comment on selection    |

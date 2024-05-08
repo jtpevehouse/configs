@@ -9,7 +9,6 @@ end, {})
 local map = vim.api.nvim_set_keymap
 map("n", "<f1>", ":noh<cr>", { noremap = true })
 map("n", "<f2>", ":CommentToggle<cr>", { noremap = true })
-map("n", "<f3>", "'<,'>CommentToggle", { noremap = true })
 map("n", "<f4>", ":NvimTreeFindFile!<cr>", { noremap = true })
 map("n", "<f5>", ":NvimTreeToggle<cr>", { noremap = true })
 map("n", "<f6>", ":Setansible<cr>", { noremap = true })
