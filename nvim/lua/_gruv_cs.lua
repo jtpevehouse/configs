@@ -28,28 +28,29 @@ vim.cmd("colorscheme gruvbox")
 require("lualine").setup({ options = { theme = "gruvbox-material" } })
 
 -- INDENT BLANKLINE
-vim.opt.termguicolors = true
-vim.cmd([[highlight IndentBlanklineIndent1 guifg=#9d0006 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent2 guifg=#79740e gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent3 guifg=#b57614 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent4 guifg=#076678 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent5 guifg=#8f3f71 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent6 guifg=#427b58 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent7 guifg=#af3a03 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineContextChar guifg=#f2e5bc gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineContextSpaceChar guifg=#f2e5bc gui=nocombine]])
+local highlight = {
+	"Red",
+	"Yellow",
+	"Blue",
+	"Orange",
+	"Green",
+	"Purple",
+	"Aqua",
+}
 
-require("indent_blankline").setup({
-	show_current_context = true,
-	show_current_context_start = true,
-	space_char_blankline = " ",
-	char_highlight_list = {
-		"IndentBlanklineIndent1",
-		"IndentBlanklineIndent2",
-		"IndentBlanklineIndent3",
-		"IndentBlanklineIndent4",
-		"IndentBlanklineIndent5",
-		"IndentBlanklineIndent6",
-		"IndentBlanklineIndent7",
-	},
+local hooks = require("ibl.hooks")
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+	vim.api.nvim_set_hl(0, "Red", { fg = "#9d0006" })
+	vim.api.nvim_set_hl(0, "Yellow", { fg = "#b57614" })
+	vim.api.nvim_set_hl(0, "Blue", { fg = "#076678" })
+	vim.api.nvim_set_hl(0, "Orange", { fg = "#af3a03" })
+	vim.api.nvim_set_hl(0, "Green", { fg = "#79740e" })
+	vim.api.nvim_set_hl(0, "Purple", { fg = "#8f3f71" })
+	vim.api.nvim_set_hl(0, "Aqua", { fg = "#427b58" })
+end)
+
+require("ibl").setup({
+	indent = { highlight = highlight },
 })
