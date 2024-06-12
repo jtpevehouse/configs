@@ -29,3 +29,4 @@ vim.o.timeoutlen = 300
 vim.highlight.priorities.semantic_tokens = 95
 set.textwidth = 120
 set.colorcolumn = "+1"
+vim.api.nvim_set_option("clipboard", "unnamed")
