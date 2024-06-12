@@ -28,6 +28,14 @@ set -g hydro_color_duration fe8019
 # set -g hydro_color_prompt a6e3a1
 # set -g hydro_color_duration f9e2af
 
+# UPDATE NEOVIM
+function update-nvim --description 'Update NeoVim to the latest nightly build'
+	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
+	sudo rm -rf /opt/nvim
+	sudo tar -C /opt -xzf nvim-linux64.tar.gz
+	rm nvim-linux64.tar.gz
+end
+
 # NNN CD ON EXIT
 function nnn --wraps nnn --description 'support nnn quit and change directory'
     # Block nesting of nnn in subshells
