@@ -5,19 +5,21 @@ require("_telescope")
 require("_nvim_tree")
 require("_autoclose")
 require("_gitsigns")
-require("_lspconfig")
-require("_null_ls")
-require("_which_key")
 require("_comment")
 require("_lualine")
+require("_mason")
+require("_conform")
+require("_nvim_lint")
 
 -- REMAPS
 require("_remaps")
 
 -- COLOR SCHEME
-require("_everforest_cs")
+require("_nord_cs")
 
 -- OPTIONS
+vim.api.nvim_set_option("clipboard", "unnamed")
+
 local set = vim.opt
 set.number = true
 set.tabstop = 4
@@ -29,4 +31,3 @@ vim.o.timeoutlen = 300
 vim.highlight.priorities.semantic_tokens = 95
 set.textwidth = 120
 set.colorcolumn = "+1"
-vim.api.nvim_set_option("clipboard", "unnamed")

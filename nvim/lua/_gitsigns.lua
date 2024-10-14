@@ -1,6 +1,6 @@
 require("gitsigns").setup({
 	signs = {
-		add = { text = "│" },
+		add = { text = "+" },
 		change = { text = "│" },
 		delete = { text = "_" },
 		topdelete = { text = "‾" },
@@ -34,8 +34,5 @@ require("gitsigns").setup({
 		relative = "cursor",
 		row = 0,
 		col = 1,
-	},
-	yadm = {
-		enable = false,
 	},
 })

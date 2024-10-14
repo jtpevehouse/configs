@@ -17,35 +17,25 @@ require("lazy").setup({
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 }, -- COLOR SCHEME
 	{ "shaunsingh/nord.nvim", priority = 1000 }, -- COLOR SCHEME
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- COLOR SCHEME
-	{ "neanias/everforest-nvim", version = false, lazy = false, priority = 1000 }, -- COLOR SCHEME
+	{
+		"neanias/everforest-nvim",
+		version = false,
+		lazy = false,
+		priority = 1000,
+	}, -- COLOR SCHEME
 	{ "m4xshen/autoclose.nvim", lazy = true }, -- AUTO CLOSE SYMBOLS
 	{ "lewis6991/gitsigns.nvim", lazy = true }, -- MARK CHANGES IN GIT REPOS
 	{ "lukas-reineke/indent-blankline.nvim", lazy = true }, -- COLORED INDENTATION MARKERS
-	{ "folke/which-key.nvim", lazy = true }, -- MENU TO HELP WITH KEYMAPS
-	{ "terrortylor/nvim-comment", lazy = true },
-	{ "hrsh7th/nvim-cmp" }, -- Autocompletion plugin
-	{ "hrsh7th/cmp-nvim-lsp" }, -- LSP source for nvim-cmp
-	{ "saadparwaiz1/cmp_luasnip" }, -- Snippets source for nvim-cmp
-	{ "L3MON4D3/LuaSnip" }, -- Define snippets
-	{ -- LSP CONFIGURATION
-		"neovim/nvim-lspconfig",
+	{ "terrortylor/nvim-comment", lazy = true }, -- BULK COMMENT
+	{ "sindrets/diffview.nvim" }, -- GIT DIFF COMPARISON
+	{ -- LINTER & FORMATTER MANAGER
+		"williamboman/mason.nvim",
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 	},
-	{ -- MASON NULL-LS INTEGRATION
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"nvimtools/none-ls.nvim",
-		},
-	},
-	{ -- CODE FORMATTING
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+	{ "stevearc/conform.nvim", opts = {}, event = { "BufReadPre", "BufNewFile" } }, -- FORMATTING
+	{ "mfussenegger/nvim-lint", event = { "BufReadPre", "BufNewFile" } }, -- LINTING
 	{ -- CODE HIGHLIGHTING
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
@@ -70,16 +60,6 @@ require("lazy").setup({
 		"nvim-tree/nvim-tree.lua",
 		requires = {
 			"nvim-tree/nvim-web-devicons",
-		},
-	},
-	{ -- GIT BLAME
-		"f-person/git-blame.nvim",
-		event = "VeryLazy",
-		opts = {
-			enabled = true,
-			message_template = " <summary> • <date> • <author> ",
-			date_format = "%r • %m-%d-%Y",
-			display_virtual_text = 0,
 		},
 	},
 })

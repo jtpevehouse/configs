@@ -19,6 +19,7 @@ configs.setup({
 		"markdown",
 		"python",
 		"yaml",
+		"terraform",
 	},
 	highlight = {
 		enable = true,
