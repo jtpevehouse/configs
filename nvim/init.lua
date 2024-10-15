@@ -1,15 +1,16 @@
 -- PLUGINS
-require("_lazy")
-require("_tree_sitter")
-require("_telescope")
-require("_nvim_tree")
+require("_lazy") -- MUST BE FIRST
 require("_autoclose")
-require("_gitsigns")
 require("_comment")
+require("_completions")
+require("_conform")
+require("_gitsigns")
 require("_lualine")
 require("_mason")
-require("_conform")
 require("_nvim_lint")
+require("_nvim_tree")
+require("_telescope")
+require("_tree_sitter")
 
 -- REMAPS
 require("_remaps")
@@ -19,7 +20,6 @@ require("_nord_cs")
 
 -- OPTIONS
 vim.api.nvim_set_option("clipboard", "unnamed")
-
 local set = vim.opt
 set.number = true
 set.tabstop = 4
