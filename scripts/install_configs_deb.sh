@@ -5,22 +5,44 @@ WORKSPACE="$HOME/workspace"
 mkdir -p $WORKSPACE
 cd $WORKSPACE
 
+download_github_release() {
+	RELEASE_NAME="$1"
+	REPO_PATH="$2"
+	RELEASE_TYPE="$3"
+
+	REPO_TARBALL="${RELEASE_NAME}.tar.gz"
+	REPO_RELEASE="${RELEASE_NAME}_release_unzip"
+	rm -rf $REPO_RELEASE
+	mkdir $REPO_RELEASE
+	REPO_DOWNLOAD_URL=$(curl -s "https://api.github.com/repos/${REPO_PATH}/releases/${RELEASE_TYPE}" \
+	    | grep "download_url.*${RELEASE_NAME}.*\.tar\.gz\""| cut -d '"' -f 4)
+	wget $REPO_DOWNLOAD_URL -O $REPO_TARBALL
+	tar -xvf $REPO_TARBALL -C $REPO_RELEASE --strip-components=1
+	cd $REPO_RELEASE
+}
+
 # INSTALL DEPENDENCIES AND TOOLS
 printf "\nInstalling dependencies and tools. . .\n\n"
-sudo apt-get install ninja-build gettext cmake unzip curl fish tmux
+sudo apt-get install ninja-build gettext cmake unzip curl fish nodejs npm
 
 # DOWNLOAD AND INSTALL OR UPDATE NEOVIM
-if [ -d "neovim" ]; then
-    printf "\nUpdating NeoVim . . .\n\n"
-    cd neovim
-    git pull
-    make distclean
-else
-    printf "\nInstalling NeoVim . . .\n\n"
-    git clone https://github.com/neovim/neovim
-    cd neovim
-fi
-make CMAKE_BUILD_TYPE=Release
+download_github_release "nvim-linux64" "neovim/neovim" "tags/nightly"
+sudo ./nvim-linux64/bin/nvim
+cd $WORKSPACE
+
+# INSTALL OR UPDATE NNN FILE MANAGER
+printf "\nInstalling NNN File Manager . . .\n\n"
+sudo apt-get install pkg-config libncursesw5-dev libreadline-dev
+download_github_release "nnn-v" "jarun/nnn" "latest"
+sudo make strip install
+cd $WORKSPACE
+
+# INSTALL OR UPDATE TMUX
+printf "\nInstalling TMUX . . .\n\n"
+sudo apt install libevent-dev ncurses-dev build-essential bison pkg-config
+download_github_release "tmux" "tmux/tmux" "latest"
+sudo ./configure
+sudo make 
 sudo make install
 cd $WORKSPACE
 
@@ -34,20 +56,6 @@ else
     git pull
 fi
 
-# INSTALL OR UPDATE NNN FILE MANAGER
-printf "\nInstalling NNN File Manager . . .\n\n"
-NNN_TARBALL="nnn.tar.gz"
-NNN_RELEASE="nnn_release_unzip"
-mkdir $NNN_RELEASE
-NNN_DOWNLOAD_URL=$(curl -s https://api.github.com/repos/jarun/nnn/releases/latest \
-    | grep "download_url.*nnn-v.*\.tar\.gz"| cut -d '"' -f 4)
-wget $NNN_DOWNLOAD_URL -O $NNN_TARBALL
-tar -xvf $NNN_TARBALL -C $NNN_RELEASE --strip-components=1
-cd $NNN_RELEASE
-sudo apt-get install pkg-config libncursesw5-dev libreadline-dev
-sudo make strip install
-
-# CONFIGURE LOCAL ENVIRONMENT
 cd $WORKSPACE
 
 # INSTALL FISHER AND PLUGINS
