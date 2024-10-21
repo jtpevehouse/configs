@@ -1,0 +1,25 @@
+---
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
+gui:
+  nerdFontsVersion: "3"
+
+customCommands:
+  - key: 'U'
+    command: 'git submodule update --init --recursive'
+    context: 'files, localBranches'
+    description: 'Update submodules'
+    stream: true
+  - key: '<c-p>'
+    command: "git push origin HEAD:refs/for/{{.CheckedOutBranch.Name}}"
+    context: 'global'
+    description: 'Push to Gerrit'
+    loadingText: 'pushing'
+  - key: '<c-w>'
+    command: "git push origin HEAD:refs/for/{{.CheckedOutBranch.Name}}%wip"
+    context: 'global'
+    description: 'Push to Gerrit as WIP'
+    loadingText: 'pushing'
