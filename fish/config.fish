@@ -9,10 +9,27 @@ alias 'vsc'='code .'
 alias 'pc'='podman-compose'
 
 # CUSTOM KEYBINDINGS
-bind \en 'nnn -C; commandline -f repaint'
+bind \en 'nnn -dH; commandline -f repaint'
 
 # SET EDITOR NVIM
 set -gx EDITOR nvim
+
+# NNN COLORS
+# NORD
+set BLK 0B 
+set CHR 0B 
+set DIR 04 
+set EXE 06 
+set REG 00 
+set HARDLINK 06 
+set SYMLINK 06 
+set MISSING 00 
+set ORPHAN 09 
+set FIFO 06 
+set SOCK 0B 
+set OTHE R06
+
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 
 # SET PROMPT COLORS
 # GRUVBOX
@@ -58,9 +75,3 @@ function nnn --wraps nnn --description 'support nnn quit and change directory'
     end
 end
 
-# LAUNCH TMUX BY DEFAULT
-#if not set -q TMUX
-#    set -g TMUX tmux new-session -d -s home
-#    eval $TMUX
-#    tmux attach-session -d -t home 
-#end
