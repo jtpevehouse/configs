@@ -30,6 +30,3 @@ vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 		timeout_ms = 500,
 	})
 end, { desc = "Format file or range (in visual mode)" })
-
--- LAZY GIT
-map("n", "lg", ":LazyGit<cr>", { noremap = true })

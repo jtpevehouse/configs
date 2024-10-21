@@ -10,6 +10,9 @@ lint.linters_by_ft = {
 	json = { "jsonlint" },
 	lua = { "luac" },
 	yaml = { "yamllint" },
+	terraform = { "tflint" },
+	dockerfile = { "hadolint" },
+	markdown = { "markdownlint" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

@@ -20,5 +20,9 @@ mason_tool_installer.setup({
 		"beautysh",
 		"luacheck",
 		"yamllint",
+		"terraform-ls",
+		"tflint",
+		"hadolint",
+		"markdownlint",
 	},
 })

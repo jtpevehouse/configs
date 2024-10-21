@@ -19,8 +19,8 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif luasnip.locally_jumpable(1) then
-				luasnip.jump(1)
+			-- elseif luasnip.locally_jumpable(1) then
+			-- 	luasnip.jump(1)
 			else
 				fallback()
 			end
