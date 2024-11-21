@@ -75,6 +75,7 @@ if [[ $CONTINUE == "yes" ]]; then
 	done
     yes | cp -i $TMUX_SRC $TMUX_DEST
     echo "Done!"
+    exit 0
 elif [[ $CONTINUE == "invalid response" ]]; then
     echo "Invalid response"
     exit 1

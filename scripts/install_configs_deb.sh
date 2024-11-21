@@ -23,11 +23,11 @@ download_github_release() {
 
 # INSTALL DEPENDENCIES AND TOOLS
 printf "\nInstalling dependencies and tools. . .\n\n"
-sudo apt-get install ninja-build gettext cmake unzip curl fish nodejs npm
+sudo apt-get install ninja-build gettext cmake unzip curl fish nodejs npm luarocks
 
 # DOWNLOAD AND INSTALL OR UPDATE NEOVIM
 download_github_release "nvim-linux64" "neovim/neovim" "tags/nightly"
-sudo ./nvim-linux64/bin/nvim
+sudo cp -r ./* /usr/
 cd $WORKSPACE
 
 # INSTALL OR UPDATE NNN FILE MANAGER
