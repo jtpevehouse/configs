@@ -23,7 +23,8 @@ download_github_release() {
 
 # INSTALL DEPENDENCIES AND TOOLS
 printf "\nInstalling dependencies and tools. . .\n\n"
-sudo apt-get install ninja-build gettext cmake unzip curl fish nodejs npm luarocks
+sudo apt-get install ninja-build gettext cmake unzip curl fish nodejs npm luarocks yamllint python3-pip
+sudo pip3 install pylint
 
 # DOWNLOAD AND INSTALL OR UPDATE NEOVIM
 download_github_release "nvim-linux64" "neovim/neovim" "tags/nightly"
