@@ -20,6 +20,7 @@ configs.setup({
 		"python",
 		"yaml",
 		"terraform",
+		"hyprlang",
 	},
 	highlight = {
 		enable = true,
@@ -27,4 +28,8 @@ configs.setup({
 	indent = {
 		enable = true,
 	},
+})
+
+vim.filetype.add({
+	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })

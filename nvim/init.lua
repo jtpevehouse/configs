@@ -16,7 +16,7 @@ require("_tree_sitter")
 require("_remaps")
 
 -- COLOR SCHEME
-require("_nord_cs")
+require("_gruv_cs")
 
 -- OPTIONS
 vim.api.nvim_set_option("clipboard", "unnamed")

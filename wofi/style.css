@@ -1,15 +1,16 @@
 window {
   margin: 0.3rem;
-  border: 0.2rem solid #98971a;
-  background-color: #282828;
+  border: 0.2rem solid #282828;
+  background-color: #3c3836;
   border-radius: 0.5rem;
   opacity: 0.9;
+  color: #ebdbb2;
 }
 
 #scroll {
   margin: 0.3rem;
   border: 0.1rem solid #d65d0e;
-  background-color: #504945;
+  background-color: #3c3836;
   border-radius: 0.5rem;
 }
 
