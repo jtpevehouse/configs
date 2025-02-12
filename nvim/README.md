@@ -1,8 +1,8 @@
-# PLUGIN MANAGER:
+# PLUGIN MANAGER
 
 [Lazy](https://github.com/folke/lazy.nvim)
 
-## PLUGINS USED:
+## PLUGINS USED
 
 | Plugin                                                                                  | Purpose                                        |
 | --------------------------------------------------------------------------------------- | ---------------------------------------------- |
