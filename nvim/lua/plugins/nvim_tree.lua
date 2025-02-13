@@ -66,6 +66,9 @@ return {
 			view = {
 				width = 40,
 			},
+			diagnostics = {
+				enable = true,
+			},
 		})
 	end,
 }

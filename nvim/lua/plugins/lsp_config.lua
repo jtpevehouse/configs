@@ -2,7 +2,6 @@ local languageServers = {
 	"lua_ls", -- LUA LS
 	"pylsp", -- PYTHON LS
 	"terraformls", -- TERRAFORM LS
-	"tflint", -- TERRAFORM LINTER/LS
 	"yamlls", -- YAML LS
 	"ansiblels", -- ANSIBLE LS
 }
@@ -41,19 +40,6 @@ return {
 				if lsp == "pylsp" then
 					lspconfig[lsp].setup({
 						capabilities = capabilities,
-						on_attach = function()
-							-- require("lsp_signature").on_attach({
-							-- 	bind = false,
-							-- 	use_lspsaga = true,
-							-- 	floating_window = true,
-							-- 	fix_pos = true,
-							-- 	hint_enable = true,
-							-- 	hi_parameter = "Search",
-							-- 	handler_opts = {
-							-- 		"shadow",
-							-- 	},
-							-- })
-						end,
 						settings = {
 							pylsp = {
 								plugins = {
@@ -68,22 +54,24 @@ return {
 							},
 						},
 					})
+				elseif lsp == "ansiblels" then
+					lspconfig[lsp].setup({
+						capabilities = capabilities,
+						settings = {
+							ansible = {
+								validation = {
+									enabled = true,
+									lint = {
+										enabled = true,
+										arguments = "-x no-changed-when,command-instead-of-module,risky-shell-pipe",
+									},
+								},
+							},
+						},
+					})
 				else
 					lspconfig[lsp].setup({
 						capabilities = capabilities,
-						on_attach = function()
-							-- require("lsp_signature").on_attach({
-							-- 	bind = false,
-							-- 	use_lspsaga = true,
-							-- 	floating_window = true,
-							-- 	fix_pos = true,
-							-- 	hint_enable = true,
-							-- 	hi_parameter = "Search",
-							-- 	handler_opts = {
-							-- 		"shadow",
-							-- 	},
-							-- })
-						end,
 					})
 				end
 			end

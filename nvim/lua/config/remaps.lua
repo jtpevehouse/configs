@@ -18,10 +18,10 @@ map("n", "<f11>", ":vertical resize -5<cr>", { noremap = true })
 map("n", "<f12>", ":vertical resize +5<cr>", { noremap = true })
 
 -- TELESCOPE
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "ff", builtin.find_files, {})
-vim.keymap.set("n", "fg", builtin.live_grep, {})
-vim.keymap.set("n", "fh", builtin.help_tags, {})
+local telescope_builtin = require("telescope.builtin")
+vim.keymap.set("n", "ff", telescope_builtin.find_files, {})
+vim.keymap.set("n", "fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", {})
+vim.keymap.set("n", "fh", telescope_builtin.help_tags, {})
 vim.api.nvim_set_keymap("n", "fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 
 -- LSP KEYMAPS

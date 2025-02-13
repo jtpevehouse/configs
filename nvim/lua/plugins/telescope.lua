@@ -31,4 +31,11 @@ return {
 			require("telescope").load_extension("ui-select")
 		end,
 	},
+	{ -- LIVE GREP WITH OPTIONS
+		"nvim-telescope/telescope-live-grep-args.nvim",
+		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		config = function()
+			require("telescope").load_extension("live_grep_args")
+		end,
+	},
 }
