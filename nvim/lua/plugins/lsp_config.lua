@@ -1,8 +1,8 @@
 local languageServers = {
-	"lua_ls", -- LUA LS
-	"pylsp", -- PYTHON LS
+	"lua_ls",   -- LUA LS
+	"pylsp",    -- PYTHON LS
 	"terraformls", -- TERRAFORM LS
-	"yamlls", -- YAML LS
+	"yamlls",   -- YAML LS
 	"ansiblels", -- ANSIBLE LS
 }
 return {

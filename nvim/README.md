@@ -53,31 +53,38 @@ managed with [Lazy](https://github.com/folke/lazy.nvim)
 
 ## CUSTOM KEYMAPS
 
-| Key          | Function                         |
-| ------------ | -------------------------------- |
-| F1           | Clear highlighting               |
-| F2           | Toggle comment on one line       |
-| F4           | Open current file in Nvim Tree   |
-| F5           | Toggle Nvim Tree                 |
-| F6           | Set file type to Ansible         |
-| F9           | Horizontal resize smaller        |
-| F10          | Horizontal resize larger         |
-| F11          | Vertical resize smaller          |
-| F12          | Vertical resize larger           |
-| ff           | Find files                       |
-| fg           | Find text in files               |
-| fh           | Open help panel                  |
-| fb           | Open file browser                |
-| gc           | Toggle comment on selection      |
-| gcc          | Toggle comment on current line   |
-| gD           | Go to declaration                |
-| gd           | Go to definition                 |
-| K            | Show hover information           |
-| \<leader\>ca | Show code actions                |
-| \<leader\>gf | Format file                      |
-| \<leader\>ne | Go to next diagnostic            |
-| \<leader\>pe | Go to previous diagnostic        |
-| \<leader\>fe | Float info of current diagnostic |
+| Key               | Function                         |
+| ----------------- | -------------------------------- |
+| F1                | Clear highlighting               |
+| F2                | Toggle comment on one line       |
+| F4                | Open current file in Nvim Tree   |
+| F5                | Toggle Nvim Tree                 |
+| F6                | Set file type to Ansible         |
+| F9                | Horizontal resize smaller        |
+| F10               | Horizontal resize larger         |
+| F11               | Vertical resize smaller          |
+| F12               | Vertical resize larger           |
+| ff                | Find files                       |
+| fg                | Find text in files               |
+| fh                | Open help panel                  |
+| fb                | Open file browser                |
+| gc                | Toggle comment on selection      |
+| gcc               | Toggle comment on current line   |
+| gD                | Go to declaration                |
+| gd                | Go to definition                 |
+| K                 | Show hover information           |
+| \<leader\>ca      | Show code actions                |
+| \<leader\>gf      | Format file                      |
+| \<leader\>ne      | Go to next diagnostic            |
+| \<leader\>pe      | Go to previous diagnostic        |
+| \<leader\>fe      | Float info of current diagnostic |
+| ALT+,             | Go to previous buffer tab        |
+| ALT+.             | Go to next buffer tab            |
+| ALT+<             | Move buffer tab left             |
+| ALT+>             | Move buffer tab right            |
+| ALT+p             | Pin buffer tab                   |
+| ALT+c             | Close buffer tab                 |
+| \<leader\>\<num\> | Focus tab \<num\>                |
 
 ## FORMATTERS AND LINTERS
 
