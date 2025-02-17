@@ -2,7 +2,8 @@
 set fish_greeting
 
 # CUSTOM ALIASES
-alias 'nv'='nvim'
+alias 'nvim'='nvim.appimage'
+alias 'nv'='nvim.appimage'
 alias 'll'='ls -lha'
 alias 'n'='nnn -C'
 alias 'vsc'='code .'
@@ -46,11 +47,34 @@ set -g hydro_color_duration fe8019
 # set -g hydro_color_duration f9e2af
 
 # UPDATE NEOVIM
-function update-nvim --description 'Update NeoVim to the latest nightly build'
-	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-	sudo rm -rf /opt/nvim
-	sudo tar -C /opt -xzf nvim-linux64.tar.gz
-	rm nvim-linux64.tar.gz
+function update-nvim --description 'Update NeoVim to the latest nightly build appimage'
+	curl -Lo nvim.appimage https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage 
+	chmod +x nvim.appimage	
+
+	sudo rm -r /squashfs-root
+	sudo rm /usr/bin/nvim
+
+	./nvim.appimage --appimage-extract
+	./squashfs-root/AppRun --version
+
+	sudo mv squashfs-root /
+	sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+
+	mv -f nvim.appimage ~/.local/bin/
+end
+
+# UPDATE OBSIDIAN
+function update-obsidian --description 'Update Obsidian to the latest release appimage'
+	curl -Lo Obsidian.AppImage https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.4/Obsidian-1.8.4.AppImage
+	chmod +x Obsidian.AppImage
+
+	mv -f Obsidian.AppImage /home/pevehousejosh/appimages/
+
+	if pgrep obsidian
+		pkill obsidian
+		/home/pevehousejosh/appimages/Obsidian.AppImage &
+		disown
+	end
 end
 
 # NNN CD ON EXIT
