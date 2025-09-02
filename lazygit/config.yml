@@ -1,18 +1,15 @@
----
 git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
-
 gui:
   nerdFontsVersion: "3"
-
 customCommands:
   - key: 'U'
     command: 'git submodule update --init --recursive'
     context: 'files, localBranches'
     description: 'Update submodules'
-    stream: true
+    output: log
   - key: '<c-p>'
     command: "git push origin HEAD:refs/for/{{.CheckedOutBranch.Name}}"
     context: 'global'
