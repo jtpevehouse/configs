@@ -2,12 +2,18 @@
 set fish_greeting
 
 # CUSTOM ALIASES
-alias 'nvim'='nvim.appimage'
-alias 'nv'='nvim.appimage'
 alias 'll'='ls -lha'
 alias 'n'='nnn -C'
 alias 'vsc'='code .'
 alias 'pc'='podman-compose'
+alias 'dc'='docker compose'
+alias 'python'='/usr/local/bin/python2.7'
+
+# WORK SERVER ALIASES
+set did_daily kc3xnw-xjjayx000.garmin.com
+set did_feature kc3xnw-xjjayx001.garmin.com
+set did_release kc3xnw-xjjayx002.garmin.com
+set did_pre_merge kc3xnw-xjjayx003.garmin.com
 
 # CUSTOM KEYBINDINGS
 bind \en 'nnn -dH; commandline -f repaint'
@@ -77,6 +83,24 @@ function update-obsidian --description 'Update Obsidian to the latest release ap
 	end
 end
 
+# UPDATE LAZYGIT
+function update-lazygit --description 'Update LazyGit to the latest release'
+	set CUR_DIR (pwd)
+	set LG_VERSION (curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+	set LG_CURL_URL https://github.com/jesseduffield/lazygit/releases/download/v"$LG_VERSION"/lazygit_"$LG_VERSION"_Linux_x86_64.tar.gz
+	set LG_DOWNLOAD_DIR /home/pevehousejosh/Downloads/lazygit
+
+	mkdir $LG_DOWNLOAD_DIR
+	cd $LG_DOWNLOAD_DIR
+
+	curl -Lo lazygit.tar.gz "$LG_CURL_URL"
+	tar xvf lazygit.tar.gz lazygit
+	sudo install lazygit -D -t /usr/local/bin/
+
+	cd $CUR_DIR
+	rm -r $LG_DOWNLOAD_DIR
+end
+
 # NNN CD ON EXIT
 function nnn --wraps nnn --description 'support nnn quit and change directory'
     # Block nesting of nnn in subshells
@@ -99,3 +123,6 @@ function nnn --wraps nnn --description 'support nnn quit and change directory'
     end
 end
 
+
+# Generated for envman. Do not edit.
+test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
