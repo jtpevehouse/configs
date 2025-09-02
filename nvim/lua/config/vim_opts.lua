@@ -10,7 +10,7 @@ set.colorcolumn = "+1"
 set.ignorecase = true
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
-vim.highlight.priorities.semantic_tokens = 95
+vim.hl.priorities.semantic_tokens = 95
 
 -- CONFIGURE DIAGNOSTIC APPEARANCE
 vim.diagnostic.config({

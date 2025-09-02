@@ -8,6 +8,7 @@ return {
 					"stylua", -- lua formatter
 					"shfmt", -- bash formatter
 					"yamlfmt", -- yaml formatter
+					"ruff", -- python linter & formatter
 					"pylint", -- python linter & formatter
 					"yamllint", -- yaml linter
 					"hadolint", -- dockerfile linter
@@ -27,6 +28,8 @@ return {
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			null_ls.setup({
 				sources = {
+					require("none-ls.formatting.ruff"),
+					require("none-ls.formatting.ruff_format"),
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.terraform_fmt,
@@ -43,7 +46,7 @@ return {
 
 				-- FORMAT ON SAVE
 				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
+					if client.supports_method("textDocument/formatting") and FormatOnSave then
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,

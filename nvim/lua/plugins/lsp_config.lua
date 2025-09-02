@@ -5,6 +5,7 @@ local languageServers = {
 	"yamlls",   -- YAML LS
 	"ansiblels", -- ANSIBLE LS
 }
+
 return {
 	{
 		"williamboman/mason.nvim",
@@ -27,6 +28,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = languageServers,
+				automatic_enable = false,
 			})
 		end,
 	},
@@ -63,7 +65,8 @@ return {
 									enabled = true,
 									lint = {
 										enabled = true,
-										arguments = "-x no-changed-when,command-instead-of-module,risky-shell-pipe",
+										arguments =
+										"-x no-changed-when,command-instead-of-module,risky-shell-pipe,name[missing],fqcn[action-core],key-order[task]",
 									},
 								},
 							},
