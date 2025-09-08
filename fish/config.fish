@@ -7,7 +7,7 @@ alias 'n'='nnn -C'
 alias 'vsc'='code .'
 alias 'pc'='podman-compose'
 alias 'dc'='docker compose'
-alias 'python'='/usr/local/bin/python2.7'
+alias 'lg'='lazygit'
 
 # WORK SERVER ALIASES
 set did_daily kc3xnw-xjjayx000.garmin.com
