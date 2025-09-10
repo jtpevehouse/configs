@@ -10,8 +10,8 @@ return {
 	config = function()
 		require("barbar").setup({
 			animation = true,
-			clickable = true,
 			insert_at_end = true,
+			auto_hide = 1,
 			sidebar_filetypes = {
 				NvimTree = true,
 			},
