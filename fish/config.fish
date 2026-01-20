@@ -101,6 +101,11 @@ function update-lazygit --description 'Update LazyGit to the latest release'
 	rm -r $LG_DOWNLOAD_DIR
 end
 
+# UPDATE KITTY
+function update-kitty --description 'Update Kitty terminal to the latest binary release'
+	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+end
+
 # NNN CD ON EXIT
 function nnn --wraps nnn --description 'support nnn quit and change directory'
     # Block nesting of nnn in subshells
@@ -122,7 +127,6 @@ function nnn --wraps nnn --description 'support nnn quit and change directory'
         rm $NNN_TMPFILE
     end
 end
-
 
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
