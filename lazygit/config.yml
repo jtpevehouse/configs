@@ -1,3 +1,4 @@
+---
 git:
   paging:
     colorArg: always
@@ -5,18 +6,18 @@ git:
 gui:
   nerdFontsVersion: "3"
 customCommands:
-  - key: 'U'
-    command: 'git submodule update --init --recursive'
-    context: 'files, localBranches'
-    description: 'Update submodules'
+  - key: "U"
+    command: "git submodule sync --recursive && git submodule update --init --recursive"
+    context: "files, localBranches"
+    description: "Update submodules"
     output: log
-  - key: '<c-p>'
+  - key: "<c-p>"
     command: "git push origin HEAD:refs/for/{{.CheckedOutBranch.Name}}"
-    context: 'global'
-    description: 'Push to Gerrit'
-    loadingText: 'pushing'
-  - key: '<c-w>'
+    context: "global"
+    description: "Push to Gerrit"
+    loadingText: "pushing"
+  - key: "<c-w>"
     command: "git push origin HEAD:refs/for/{{.CheckedOutBranch.Name}}%wip"
-    context: 'global'
-    description: 'Push to Gerrit as WIP'
-    loadingText: 'pushing'
+    context: "global"
+    description: "Push to Gerrit as WIP"
+    loadingText: "pushing"
