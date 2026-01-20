@@ -35,48 +35,47 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
+			vim.lsp.config("pylsp", {
+				settings = {
+					pylsp = {
+						plugins = {
+							pyflakes = { enabled = false },
+							pycodestyle = { enabled = false },
+							autopep8 = { enabled = false },
+							yapf = { enabled = false },
+							pylsp_mypy = { enabled = false },
+							pylsp_black = { enabled = false },
+							pylsp_isort = { enabled = false },
+						},
+					},
+				},
+			})
+
+			vim.lsp.config("ansiblels", {
+				settings = {
+					ansible = {
+						ansible = {
+							path = "ansible",
+						},
+						executionEnvironment = {
+							enabled = false,
+						},
+						python = {
+							interpreterPath = "python",
+						},
+						validation = {
+							enabled = true,
+							lint = {
+								enabled = true,
+								path = "ansible-lint",
+							},
+						},
+					},
+				},
+			})
 
 			for _, lsp in ipairs(languageServers) do
-				if lsp == "pylsp" then
-					lspconfig[lsp].setup({
-						capabilities = capabilities,
-						settings = {
-							pylsp = {
-								plugins = {
-									pyflakes = { enabled = false },
-									pycodestyle = { enabled = false },
-									autopep8 = { enabled = false },
-									yapf = { enabled = false },
-									pylsp_mypy = { enabled = false },
-									pylsp_black = { enabled = false },
-									pylsp_isort = { enabled = false },
-								},
-							},
-						},
-					})
-				elseif lsp == "ansiblels" then
-					lspconfig[lsp].setup({
-						capabilities = capabilities,
-						settings = {
-							ansible = {
-								validation = {
-									enabled = true,
-									lint = {
-										enabled = true,
-										arguments =
-										"-x no-changed-when,command-instead-of-module,risky-shell-pipe,name[missing],fqcn[action-core],key-order[task]",
-									},
-								},
-							},
-						},
-					})
-				else
-					lspconfig[lsp].setup({
-						capabilities = capabilities,
-					})
-				end
+				vim.lsp.enable(lsp)
 			end
 		end,
 	},
