@@ -1,15 +1,11 @@
 #!/bin/bash
-TMUX_SESSION_NAME="home"
-# WORK CONFIG
-# MRN_DIR="/home/pevehousejosh/grmn/prj/mrn"
+TMUX_SESSION_NAME="work"
 
-# tmux new-session -A -d -s home -n def && \
-    #     tmux new-window -t $TMUX_SESSION_NAME -n "hydrogen" -c "$MRN_DIR/mfd-app" && \
-    #     tmux new-window -t $TMUX_SESSION_NAME -n "alchemy" -c "$MRN_DIR/alchemy" && \
-    #     tmux new-window -t $TMUX_SESSION_NAME -n "mrn-metrics" -c "$MRN_DIR/marine-metrics"
+MRN_DIR="/home/pevehousejosh/grmn/prj/mrn"
 
-# HOME CONFIG
-tmux new-session -A -d -s home -n home && \
-    tmux new-window -t $TMUX_SESSION_NAME -n "workspace" -c "~/workspace"
+tmux new-session -A -d -s $TMUX_SESSION_NAME -n def &&
+	tmux new-window -t $TMUX_SESSION_NAME -n "hydrogen" -c "$MRN_DIR/mfd-app" &&
+	tmux new-window -t $TMUX_SESSION_NAME -n "alchemy" -c "$MRN_DIR/alchemy" &&
+	tmux new-window -t $TMUX_SESSION_NAME -n "mrn-metrics" -c "$MRN_DIR/marine-metrics"
 
-tmux attach -t home:def
+tmux attach -t $TMUX_SESSION_NAME:def
