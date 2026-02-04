@@ -8,13 +8,6 @@ alias 'vsc'='code .'
 alias 'pc'='podman-compose'
 alias 'dc'='docker compose'
 alias 'lg'='lazygit'
-alias 'git-sub-nuke'='git submodule deinit -f --all'
-
-# WORK SERVER ALIASES
-set did_daily kc3xnw-xjjayx000.garmin.com
-set did_feature kc3xnw-xjjayx001.garmin.com
-set did_release kc3xnw-xjjayx002.garmin.com
-set did_pre_merge kc3xnw-xjjayx003.garmin.com
 
 # CUSTOM KEYBINDINGS
 bind \en 'nnn -dH; commandline -f repaint'
@@ -46,12 +39,6 @@ set -g hydro_color_git 8ec07c
 set -g hydro_color_error fb4934
 set -g hydro_color_prompt b8bb26
 set -g hydro_color_duration fe8019
-# CATPPUCCIN
-# set -g hydro_color_pwd a6e3a1
-# set -g hydro_color_git cba6f7
-# set -g hydro_color_error f38ba8
-# set -g hydro_color_prompt a6e3a1
-# set -g hydro_color_duration f9e2af
 
 # UPDATE NEOVIM
 function update-nvim --description 'Update NeoVim to the latest nightly build appimage'
