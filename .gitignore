@@ -7,3 +7,4 @@ fish/fish_variables
 fish/fish_plugins
 fish/completions/
 nvim/lazy-lock.json
+.dot
