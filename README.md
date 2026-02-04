@@ -1,4 +1,4 @@
-# Overview
+# Dotfiles
 
 This maintains current tools and plugins used for my daily dev workflow
 
@@ -13,30 +13,35 @@ This maintains current tools and plugins used for my daily dev workflow
   - Hyprpaper: wallpaper
 - waybar: status bar for Wayland
 
-# Usage
+## Install
 
-## Install all configs
-
-### Debian
-
-Run `scripts/install_configs_deb.sh`
-
-### Arch
-
-Run `scripts/install_configs_arch.sh`
-
-## Install fish plugins
-
-Run `scripts/install_fisher.fish`
-
-## Copy configs
-
-Run `scripts/copy_configs.sh`
-
+```shell
+git clone --bare https://github.com/jtpevehouse/configs.git $HOME/.dot
+git --git-dir=$HOME/.dot --work-tree=$HOME checkout
+git --git-dir=$HOME/.dot --work-tree=$HOME --local status.showUntrackedFiles no
 ```
-copy_configs.sh -l
-    copy configs from ~/workspace to ~/.config
 
-copy_configs.sh -h
-    copy configs from ~/.config to ~/workspace
-```
+## Tmux
+
+Plugin manager: [TPM](https://github.com/tmux-plugins/tpm)
+
+### Plugins used
+
+| Plugin                                                                | Purpose                     |
+| --------------------------------------------------------------------- | --------------------------- |
+| [better mouse mode](https://github.com/NHDaly/tmux-better-mouse-mode) | Allows better mouse control |
+| [nord](https://github.com/nordtheme/tmux)                             | Color scheme & powerline    |
+| [gruvbox](https://github.com/egel/tmux-gruvbox)                       | Color scheme & powerline    |
+
+### Custom Keymaps
+
+| Key                  | Function                             |
+| -------------------- | ------------------------------------ |
+| ALT + \*num\*        | Select window                        |
+| ALT + \*vim keys\*   | Switch pane                          |
+| ALT + \*arrow keys\* | Resize panes                         |
+| ctrl+b + \|          | Split vertically in current dir      |
+| ctrl+b + -           | Split horizontally in current dir    |
+| ctrl+b + o           | Re order windows                     |
+| ctrl+b + k           | Kill session (asks for confirmation) |
+| ctrl+b + x           | Kill panel (asks for confirmation)   |

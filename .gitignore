@@ -6,5 +6,6 @@ fish/themes/
 fish/fish_variables
 fish/fish_plugins
 fish/completions/
+fish/*.tmp.*
 nvim/lazy-lock.json
 .dot
