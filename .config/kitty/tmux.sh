@@ -1,7 +1,6 @@
 #!/bin/bash
 TMUX_SESSION_NAME="work"
-
-MRN_DIR="/home/pevehousejosh/grmn/prj/mrn"
+MRN_DIR="/grmn/prj/mrn"
 
 tmux new-session -A -d -s $TMUX_SESSION_NAME -n def &&
 	tmux new-window -t $TMUX_SESSION_NAME -n "hydrogen" -c "$MRN_DIR/mfd-app" &&
