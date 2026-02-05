@@ -19,6 +19,8 @@ This maintains current tools and plugins used for my daily dev workflow
 git clone --bare https://github.com/jtpevehouse/configs.git $HOME/.dot
 git --git-dir=$HOME/.dot --work-tree=$HOME checkout
 git --git-dir=$HOME/.dot --work-tree=$HOME config --local status.showUntrackedFiles no
+
+bash $HOME/dot_scripts/install_tools_<distro>.sh
 ```
 
 ## Tmux

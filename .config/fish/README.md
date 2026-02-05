@@ -10,7 +10,7 @@
 | ---------------------------------------------------------------- | --------------------------------------------- |
 | [Node Version Manager](https://github.com/jorgebucaran/nvm.fish) | Easily manage which node.js version is active |
 | [Fuzzy Finder](https://github.com/PatrickF1/fzf.fish)            | Search within the current dir                 |
-| [Tide](https://github.com/IlanCosman/tide)                       | Prompt configuration                          |
+| [Hydro](https://github.com/jorgebucaran/hydro)                   | Prompt configuration                          |
 
 ## CUSTOM KEYMAPS
 

@@ -120,5 +120,3 @@ function dot -w git -d "Manages dotfiles"
     git --git-dir=$HOME/.dot --work-tree=$HOME $argv
 end
 
-# Generated for envman. Do not edit.
-test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
