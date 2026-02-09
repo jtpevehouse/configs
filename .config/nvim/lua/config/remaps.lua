@@ -99,3 +99,7 @@ map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 
 -- Close all but active buffer
 map("n", "<A-C>", "<Cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
+
+-- DIFFVIEW REMAPS
+map("n", "<leader>gdo", "<Cmd>DiffviewOpen<CR>", opts)
+map("n", "<leader>gdc", "<Cmd>DiffviewClose<CR>", opts)

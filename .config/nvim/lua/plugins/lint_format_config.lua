@@ -11,6 +11,7 @@ return {
 					"ruff", -- python linter & formatter
 					"pylint", -- python linter & formatter
 					"yamllint", -- yaml linter
+					"ansible-lint", -- ansible linter
 					"hadolint", -- dockerfile linter
 					"markdownlint", -- markdown linter
 					"prettierd", -- general formatter
@@ -34,6 +35,7 @@ return {
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.terraform_fmt,
 					null_ls.builtins.formatting.yamlfmt,
+					null_ls.builtins.diagnostics.ansiblelint,
 					null_ls.builtins.formatting.prettierd.with({
 						filetypes = { "html", "json", "markdown" },
 					}),
