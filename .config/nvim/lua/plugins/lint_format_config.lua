@@ -46,7 +46,7 @@ return {
 
 				-- FORMAT ON SAVE
 				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") and FormatOnSave then
+					if client:supports_method("textDocument/formatting") and FormatOnSave then
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,
