@@ -61,13 +61,13 @@ vim.api.nvim_create_autocmd("LspAttach", { -- ONLY CREATE KEYMAPS ON LSP ATTACH 
 		vim.keymap.set("n", "D", vim.lsp.buf.hover, tmp_opts)
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, tmp_opts)
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, tmp_opts)
-		vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next, tmp_opts)
-		vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev, tmp_opts)
-		vim.keymap.set("n", "<leader>fe", vim.diagnostic.open_float, tmp_opts)
 		vim.keymap.set("n", "<f2>", vim.lsp.buf.rename, tmp_opts)
 		vim.keymap.set("n", "Tf", ToggleFOS, opts)
 	end,
 })
+vim.keymap.set("n", "<leader>fe", vim.diagnostic.open_float, tmp_opts)
+vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next, tmp_opts)
+vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev, tmp_opts)
 
 -- BARBAR REMAPS
 
@@ -103,3 +103,16 @@ map("n", "<A-C>", "<Cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
 -- DIFFVIEW REMAPS
 map("n", "<leader>gdo", "<Cmd>DiffviewOpen<CR>", opts)
 map("n", "<leader>gdc", "<Cmd>DiffviewClose<CR>", opts)
+
+-- CUSTOM COMMANDS
+-- Show linters for the current buffer's file type
+vim.api.nvim_create_user_command("LintInfo", function()
+	local filetype = vim.bo.filetype
+	local linters = require("lint").linters_by_ft[filetype]
+
+	if linters then
+		print("Linters for " .. filetype .. ": " .. table.concat(linters, ", "))
+	else
+		print("No linters configured for filetype: " .. filetype)
+	end
+end, {})

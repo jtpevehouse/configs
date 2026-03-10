@@ -1,37 +1,11 @@
 local languageServers = {
-	"lua_ls", -- LUA LS
-	"pylsp", -- PYTHON LS
+	"lua_ls",   -- LUA LS
+	"pylsp",    -- PYTHON LS
 	"terraformls", -- TERRAFORM LS
-	"yamlls", -- YAML LS
 	"ansiblels", -- ANSIBLE LS
 }
 
 return {
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			local mason = require("mason")
-
-			mason.setup({
-				ui = {
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
-			})
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = languageServers,
-				automatic_enable = false,
-			})
-		end,
-	},
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -50,7 +24,6 @@ return {
 					},
 				},
 			})
-
 			vim.lsp.config("ansiblels", {
 				settings = {
 					ansible = {
@@ -61,7 +34,7 @@ return {
 							enabled = false,
 						},
 						python = {
-							interpreterPath = "python",
+							interpreterPath = "/usr/bin/python3",
 						},
 						validation = {
 							enabled = true,

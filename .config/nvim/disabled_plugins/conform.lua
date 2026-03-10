@@ -15,16 +15,15 @@ return {
 	},
 	-- This will provide type hinting with LuaLS
 	---@module "conform"
-	---@type conform.setupOpts
 	opts = {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort", "black" },
+			python = { "ruff_fix", "ruff_format" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
-			ansible = { "ansible-lint" },
+			ansible = { "yamlfmt" },
 			yaml = { "yamlfmt" },
-			bash = { "shfmt" },
+			sh = { "shfmt" },
 			markdown = { "markdownlint", "prettierd" },
 			json = { "prettierd" },
 		},
@@ -33,11 +32,11 @@ return {
 			lsp_format = "fallback",
 		},
 		-- Set up format-on-save
-		format_on_save = { timeout_ms = 500 },
+		format_on_save = { timeout_ms = 5000 },
 		-- Customize formatters
 		formatters = {
 			shfmt = {
-				prepend_args = { "-i", "2" },
+				append_args = { "-i", "2" },
 			},
 		},
 	},
