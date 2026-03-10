@@ -16,11 +16,12 @@ set did_feature kc3xnw-xjjayx001.garmin.com
 set did_release kc3xnw-xjjayx002.garmin.com
 set did_pre_merge kc3xnw-xjjayx003.garmin.com
 
-# CUSTOM KEYBINDINGS
-bind \en 'nnn -dH; commandline -f repaint'
-
 # SET EDITOR NVIM
 set -gx EDITOR nvim
+
+# CUSTOM KEYBINDINGS
+bind \en 'nnn -dH; commandline -f repaint'
+set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
 
 # NNN COLORS
 # NORD
