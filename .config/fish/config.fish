@@ -133,5 +133,12 @@ function dot -w git -d "Manages dotfiles"
     git --git-dir=$HOME/.dot --work-tree=$HOME $argv
 end
 
+function remove_path
+  if set -l index (contains -i "$argv" $fish_user_paths)
+    set -e fish_user_paths[$index]
+    echo "Removed $argv from the path"
+  end
+end
+
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
