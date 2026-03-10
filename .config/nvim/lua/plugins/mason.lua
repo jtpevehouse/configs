@@ -1,3 +1,10 @@
+local languageServers = {
+	"lua_ls",   -- LUA LS
+	"pylsp",    -- PYTHON LS
+	"terraformls", -- TERRAFORM LS
+	"ansiblels", -- ANSIBLE LS
+}
+
 return {
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -17,6 +24,15 @@ return {
 					"rstcheck", -- rst linter
 					"luacheck", -- lua linter
 				},
+			})
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = languageServers,
+				automatic_enable = false,
 			})
 		end,
 	},
