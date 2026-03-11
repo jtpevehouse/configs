@@ -1,10 +1,3 @@
-local languageServers = {
-	"lua_ls",   -- LUA LS
-	"pylsp",    -- PYTHON LS
-	"terraformls", -- TERRAFORM LS
-	"ansiblels", -- ANSIBLE LS
-}
-
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -47,7 +40,7 @@ return {
 				},
 			})
 
-			for _, lsp in ipairs(languageServers) do
+			for _, lsp in ipairs(LanguageServers) do
 				vim.lsp.enable(lsp)
 			end
 		end,
