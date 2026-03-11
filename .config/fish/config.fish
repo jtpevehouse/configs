@@ -130,15 +130,28 @@ function nnn --wraps nnn --description 'support nnn quit and change directory'
     end
 end
 
+# INTERACT WITH BARE REPO CONFIGS
 function dot -w git -d "Manages dotfiles"
     git --git-dir=$HOME/.dot --work-tree=$HOME $argv
 end
 
+# REMOVE SOMETHING FROM THE PATH
 function remove_path
   if set -l index (contains -i "$argv" $fish_user_paths)
     set -e fish_user_paths[$index]
     echo "Removed $argv from the path"
   end
+end
+
+# REBUILD SUBMODULES IN A REPOSITORY
+function git_sub_rebuild
+	if test -e $PWD/.gitmodules
+		git submodule deinit -f --all
+		git submodule sync --recursive
+		git submodule update --init --recursive
+	else
+		echo "No submodles to rebuild"
+	end
 end
 
 # Generated for envman. Do not edit.
