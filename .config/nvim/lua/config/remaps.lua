@@ -104,15 +104,11 @@ map("n", "<A-C>", "<Cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
 map("n", "<leader>gdo", "<Cmd>DiffviewOpen<CR>", opts)
 map("n", "<leader>gdc", "<Cmd>DiffviewClose<CR>", opts)
 
--- CUSTOM COMMANDS
--- Show linters for the current buffer's file type
-vim.api.nvim_create_user_command("LintInfo", function()
-	local filetype = vim.bo.filetype
-	local linters = require("lint").linters_by_ft[filetype]
+-- TODO COMMENT JUMPING
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
 
-	if linters then
-		print("Linters for " .. filetype .. ": " .. table.concat(linters, ", "))
-	else
-		print("No linters configured for filetype: " .. filetype)
-	end
-end, {})
+vim.keymap.set("n", "[t", function()
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })

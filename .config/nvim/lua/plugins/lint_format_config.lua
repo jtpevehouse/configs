@@ -15,16 +15,12 @@ return {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.terraform_fmt,
-					null_ls.builtins.formatting.yamlfmt.with({
-						disabled_filetypes = { "yaml.ansible" },
-					}),
 					null_ls.builtins.formatting.prettierd.with({
-						filetypes = { "html", "json", "markdown" },
+						filetypes = { "html", "json", "markdown", "yaml" },
 					}),
 					null_ls.builtins.diagnostics.yamllint.with({
 						disabled_filetypes = { "yaml.ansible" },
 					}),
-					null_ls.builtins.diagnostics.pylint,
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.diagnostics.markdownlint,
 					null_ls.builtins.diagnostics.terraform_validate,
