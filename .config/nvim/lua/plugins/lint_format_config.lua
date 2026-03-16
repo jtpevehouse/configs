@@ -1,24 +1,5 @@
 return {
 	{
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		config = function()
-			local mason_tool_installer = require("mason-tool-installer")
-			mason_tool_installer.setup({
-				ensure_installed = {
-					"stylua", -- lua formatter
-					"shfmt", -- bash formatter
-					"yamlfmt", -- yaml formatter
-					"ruff", -- python linter & formatter
-					"pylint", -- python linter & formatter
-					"yamllint", -- yaml linter
-					"hadolint", -- dockerfile linter
-					"markdownlint", -- markdown linter
-					"prettierd", -- general formatter
-				},
-			})
-		end,
-	},
-	{
 		"nvimtools/none-ls.nvim",
 		dependencies = {
 			"nvimtools/none-ls-extras.nvim",
@@ -26,6 +7,7 @@ return {
 		config = function()
 			local null_ls = require("null-ls")
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 			null_ls.setup({
 				sources = {
 					require("none-ls.formatting.ruff"),
@@ -33,20 +15,21 @@ return {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.terraform_fmt,
-					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.formatting.prettierd.with({
-						filetypes = { "html", "json", "markdown" },
+						filetypes = { "html", "json", "markdown", "yaml" },
 					}),
-					null_ls.builtins.diagnostics.yamllint,
-					null_ls.builtins.diagnostics.pylint,
+					null_ls.builtins.diagnostics.yamllint.with({
+						disabled_filetypes = { "yaml.ansible" },
+					}),
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.diagnostics.markdownlint,
 					null_ls.builtins.diagnostics.terraform_validate,
+					null_ls.builtins.diagnostics.rstcheck,
 				},
 
 				-- FORMAT ON SAVE
 				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") and FormatOnSave then
+					if client:supports_method("textDocument/formatting") and FormatOnSave then
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,

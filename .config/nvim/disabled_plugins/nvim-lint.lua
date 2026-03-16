@@ -1,32 +1,28 @@
 return {
-	"mfussenegger/nvim-lint",
-	config = function()
-		local lint = require("lint")
-		lint.linters_by_ft = {
-			ansible = {
-				"ansible-lint"
-			},
-			yaml = {
-				"yamllint"
-			},
-			bash = {
-				"bash"
-			},
-			python = {
-				"ruff"
-			},
-			lua = {
-				"luac"
+	{
+		"mfussenegger/nvim-lint",
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				["yaml.ansible"] = { "ansible_lint" },
+				yaml = { "yamllint" },
+				bash = { "bash" },
+				python = { "ruff", "pylint" },
+				lua = { "luacheck" },
+				dockerfile = { "hadolint" },
+				markdown = { "markdownlint" },
+				rst = { "rstcheck" },
 			}
-		}
 
-		vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
-			callback = function()
-				local lint_status, lint = pcall(require, "lint")
-				if lint_status then
+			vim.api.nvim_create_autocmd({ "TextChanged", "BufWritePost", "BufReadPost" }, {
+				callback = function()
 					lint.try_lint()
-				end
-			end,
-		})
-	end,
+					local lint_status, lint = pcall(require, "lint")
+					if lint_status then
+						lint.try_lint()
+					end
+				end,
+			})
+		end,
+	},
 }

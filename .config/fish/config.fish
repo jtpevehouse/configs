@@ -8,6 +8,13 @@ alias 'vsc'='code .'
 alias 'pc'='podman-compose'
 alias 'dc'='docker compose'
 alias 'lg'='lazygit'
+alias 'git-sub-nuke'='git submodule deinit -f --all'
+
+# WORK SERVER ALIASES
+set did_daily kc3xnw-xjjayx000.garmin.com
+set did_feature kc3xnw-xjjayx001.garmin.com
+set did_release kc3xnw-xjjayx002.garmin.com
+set did_pre_merge kc3xnw-xjjayx003.garmin.com
 
 # CUSTOM KEYBINDINGS
 bind \en 'nnn -dH; commandline -f repaint'
@@ -39,6 +46,12 @@ set -g hydro_color_git 8ec07c
 set -g hydro_color_error fb4934
 set -g hydro_color_prompt b8bb26
 set -g hydro_color_duration fe8019
+# CATPPUCCIN
+# set -g hydro_color_pwd a6e3a1
+# set -g hydro_color_git cba6f7
+# set -g hydro_color_error f38ba8
+# set -g hydro_color_prompt a6e3a1
+# set -g hydro_color_duration f9e2af
 
 # UPDATE NEOVIM
 function update-nvim --description 'Update NeoVim to the latest nightly build appimage'
@@ -116,7 +129,29 @@ function nnn --wraps nnn --description 'support nnn quit and change directory'
     end
 end
 
+# INTERACT WITH BARE REPO CONFIGS
 function dot -w git -d "Manages dotfiles"
     git --git-dir=$HOME/.dot --work-tree=$HOME $argv
 end
 
+# REMOVE SOMETHING FROM THE PATH
+function remove_path
+  if set -l index (contains -i "$argv" $fish_user_paths)
+    set -e fish_user_paths[$index]
+    echo "Removed $argv from the path"
+  end
+end
+
+# REBUILD SUBMODULES IN A REPOSITORY
+function git_sub_rebuild
+	if test -e $PWD/.gitmodules
+		git submodule deinit -f --all
+		git submodule sync --recursive
+		git submodule update --init --recursive
+	else
+		echo "No submodles to rebuild"
+	end
+end
+
+# Generated for envman. Do not edit.
+test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish

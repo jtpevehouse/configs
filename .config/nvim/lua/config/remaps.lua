@@ -61,13 +61,13 @@ vim.api.nvim_create_autocmd("LspAttach", { -- ONLY CREATE KEYMAPS ON LSP ATTACH 
 		vim.keymap.set("n", "D", vim.lsp.buf.hover, tmp_opts)
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, tmp_opts)
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, tmp_opts)
-		vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next, tmp_opts)
-		vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev, tmp_opts)
-		vim.keymap.set("n", "<leader>fe", vim.diagnostic.open_float, tmp_opts)
 		vim.keymap.set("n", "<f2>", vim.lsp.buf.rename, tmp_opts)
 		vim.keymap.set("n", "Tf", ToggleFOS, opts)
 	end,
 })
+vim.keymap.set("n", "<leader>fe", vim.diagnostic.open_float, tmp_opts)
+vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next, tmp_opts)
+vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev, tmp_opts)
 
 -- BARBAR REMAPS
 
@@ -99,3 +99,16 @@ map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 
 -- Close all but active buffer
 map("n", "<A-C>", "<Cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
+
+-- DIFFVIEW REMAPS
+map("n", "<leader>gdo", "<Cmd>DiffviewOpen<CR>", opts)
+map("n", "<leader>gdc", "<Cmd>DiffviewClose<CR>", opts)
+
+-- TODO COMMENT JUMPING
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
