@@ -21,7 +21,6 @@ set -gx EDITOR nvim
 
 # CUSTOM KEYBINDINGS
 bind \en 'nnn -dH; commandline -f repaint'
-set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
 
 # NNN COLORS
 # NORD
