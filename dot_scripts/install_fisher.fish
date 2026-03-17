@@ -4,4 +4,4 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install jorgebucaran/fisher
 fisher install jorgebucaran/nvm.fish
 nvm install latest
-fisher install IlanCosman/tide@v5.0.1
+fisher install IlanCosman/tide@v6
