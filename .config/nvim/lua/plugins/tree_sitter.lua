@@ -17,6 +17,7 @@ return {
 				"dockerfile",
 				"fish",
 				"gitignore",
+				"go",
 				"html",
 				"javascript",
 				"json",

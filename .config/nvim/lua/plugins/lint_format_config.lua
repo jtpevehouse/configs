@@ -10,21 +10,28 @@ return {
 
 			null_ls.setup({
 				sources = {
-					require("none-ls.formatting.ruff"),
-					require("none-ls.formatting.ruff_format"),
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.shfmt,
-					null_ls.builtins.formatting.terraform_fmt,
-					null_ls.builtins.formatting.prettierd.with({
-						filetypes = { "html", "json", "markdown", "yaml" },
+					-- LINTERS
+					null_ls.builtins.diagnostics.hadolint,
+					null_ls.builtins.diagnostics.markdownlint.with({
+						extra_args = { "--disable", "MD013" },
 					}),
+					null_ls.builtins.diagnostics.rstcheck,
+					null_ls.builtins.diagnostics.terraform_validate,
 					null_ls.builtins.diagnostics.yamllint.with({
 						disabled_filetypes = { "yaml.ansible" },
 					}),
-					null_ls.builtins.diagnostics.hadolint,
-					null_ls.builtins.diagnostics.markdownlint,
-					null_ls.builtins.diagnostics.terraform_validate,
-					null_ls.builtins.diagnostics.rstcheck,
+					-- FORMATTERS
+					null_ls.builtins.formatting.clang_format,
+					null_ls.builtins.formatting.gofumpt,
+					null_ls.builtins.formatting.prettierd.with({
+						filetypes = { "html", "json", "markdown" },
+					}),
+					require("none-ls.formatting.ruff"),
+					require("none-ls.formatting.ruff_format"),
+					null_ls.builtins.formatting.shfmt,
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.terraform_fmt,
+					null_ls.builtins.formatting.yamlfmt,
 				},
 
 				-- FORMAT ON SAVE

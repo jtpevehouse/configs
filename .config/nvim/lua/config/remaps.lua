@@ -37,6 +37,7 @@ map("n", "fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { no
 
 -- GIT SIGNS
 map("n", "gb", ":Gitsigns toggle_current_line_blame<CR>", { noremap = true })
+map("n", "gbl", ":Gitsigns blame_line<CR>", { noremap = true })
 
 -- LSP KEYMAPS
 FormatOnSave = true

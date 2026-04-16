@@ -1,22 +1,27 @@
 LanguageServers = {
-	"lua_ls", -- LUA LS
-	"pylsp", -- PYTHON LS
-	"ruff", -- PYTHON LS
-	"terraformls", -- TERRAFORM LS
 	"ansiblels", -- ANSIBLE LS
+	"clangd",   -- CPP LS
 	"fish_lsp", -- FISH LS
+	"gopls",    -- GOLANG LS
+	"lua_ls",   -- LUA LS
+	"marksman", -- MARKDOWN LS
+	"pylsp",    -- PYTHON LS
+	"ruff",     -- PYTHON LS
+	"terraformls", -- TERRAFORM LS
 }
 
 LintersFormatters = {
-	"stylua", -- lua formatter
-	"shfmt", -- bash formatter
-	"yamlfmt", -- yaml formatter
-	"ruff", -- python linter & formatter
-	"pylint", -- python linter & formatter
-	"yamllint", -- yaml linter
-	"hadolint", -- dockerfile linter
+	"clang-format", -- cpp formatter
+	"gofumpt",   -- go formatter
+	"hadolint",  -- dockerfile linter
+	"luacheck",  -- lua linter
 	"markdownlint", -- markdown linter
 	"prettierd", -- general formatter
-	"rstcheck", -- rst linter
-	"luacheck", -- lua linter
+	"pylint",    -- python linter & formatter
+	"rstcheck",  -- rst linter
+	"ruff",      -- python linter & formatter
+	"shfmt",     -- bash formatter
+	"stylua",    -- lua formatter
+	"yamlfmt",   -- yaml formatter
+	"yamllint",  -- yaml linter
 }
