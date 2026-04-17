@@ -11,6 +11,7 @@ return {
 			null_ls.setup({
 				sources = {
 					-- LINTERS
+					null_ls.builtins.diagnostics.codespell,
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.diagnostics.markdownlint.with({
 						extra_args = { "--disable", "MD013" },

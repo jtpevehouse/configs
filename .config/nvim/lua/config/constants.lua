@@ -12,6 +12,7 @@ LanguageServers = {
 
 LintersFormatters = {
 	"clang-format", -- cpp formatter
+	"codespell", -- spelling linter
 	"gofumpt",   -- go formatter
 	"hadolint",  -- dockerfile linter
 	"luacheck",  -- lua linter
