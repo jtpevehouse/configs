@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 TMUX_SESSION_NAME="work"
 MRN_DIR="/grmn/prj/mrn"
 
