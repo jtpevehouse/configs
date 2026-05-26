@@ -29,7 +29,9 @@ return {
 					}),
 					require("none-ls.formatting.ruff"),
 					require("none-ls.formatting.ruff_format"),
-					null_ls.builtins.formatting.shfmt,
+					null_ls.builtins.formatting.shfmt.with({
+						filetypes = { "sh", "bash", "zsh" },
+					}),
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.terraform_fmt,
 					null_ls.builtins.formatting.yamlfmt,
