@@ -1,7 +1,6 @@
 LanguageServers = {
 	"ansiblels", -- ANSIBLE LS
 	"clangd",   -- CPP LS
-	"fish_lsp", -- FISH LS
 	"gopls",    -- GOLANG LS
 	"lua_ls",   -- LUA LS
 	"marksman", -- MARKDOWN LS
