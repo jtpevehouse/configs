@@ -1,0 +1,7 @@
+# THEME
+romkatv/powerlevel10k
+
+# PLUGINS
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
