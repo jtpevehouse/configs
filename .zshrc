@@ -10,7 +10,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd extendedglob nomatch
-bindkey -v
 # End of lines configured by zsh-newuser-install
 #
 # The following lines were added by compinstall
@@ -45,6 +44,10 @@ git_sub_rebuild() {
 	else
 		echo "No submodles to rebuild"
 	fi
+}
+
+update-kitty() {
+	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 }
 
 # Autosuggestions configuration
