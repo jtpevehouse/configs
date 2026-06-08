@@ -39,19 +39,13 @@ set OTHE R06
 
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 
-# SET PROMPT COLORS
-# GRUVBOX
-set -g hydro_color_pwd b8bb26
-set -g hydro_color_git 8ec07c
-set -g hydro_color_error fb4934
-set -g hydro_color_prompt b8bb26
-set -g hydro_color_duration fe8019
-# CATPPUCCIN
-# set -g hydro_color_pwd a6e3a1
-# set -g hydro_color_git cba6f7
-# set -g hydro_color_error f38ba8
-# set -g hydro_color_prompt a6e3a1
-# set -g hydro_color_duration f9e2af
+# SET HYDRO PROMPT COLORS
+# EVERFOREST
+set -g hydro_color_pwd A7C080
+set -g hydro_color_git E69875
+set -g hydro_color_error E67E80
+set -g hydro_color_prompt 7FBBB3
+set -g hydro_color_duration D699B6
 
 # UPDATE NEOVIM
 function update-nvim --description 'Update NeoVim to the latest nightly build appimage'

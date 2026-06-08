@@ -9,7 +9,7 @@
 | Plugin                                                           | Purpose                                       |
 | ---------------------------------------------------------------- | --------------------------------------------- |
 | [Node Version Manager](https://github.com/jorgebucaran/nvm.fish) | Easily manage which node.js version is active |
-| [Tide](https://github.com/IlanCosman/tide)                       | Prompt configuration                          |
+| [Hydro](https://github.com/jorgebucaran/hydro)                   | Prompt configuration                          |
 
 ## CUSTOM KEYMAPS
 
