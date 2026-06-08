@@ -42,10 +42,10 @@ export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SO
 # SET HYDRO PROMPT COLORS
 # EVERFOREST
 set -g hydro_color_pwd A7C080
-set -g hydro_color_git E69875
+set -g hydro_color_git  D699B6
 set -g hydro_color_error E67E80
 set -g hydro_color_prompt 7FBBB3
-set -g hydro_color_duration D699B6
+set -g hydro_color_duration E69875
 
 # UPDATE NEOVIM
 function update-nvim --description 'Update NeoVim to the latest nightly build appimage'
