@@ -8,6 +8,7 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["custom/clock"],
   "modules-right": ["cpu", "memory", "pulseaudio", "battery", "tray"],
+
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
