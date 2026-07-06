@@ -31,6 +31,7 @@ return {
 					require("none-ls.formatting.ruff_format"),
 					null_ls.builtins.formatting.shfmt.with({
 						filetypes = { "sh", "bash", "zsh" },
+						extra_args = { "-i", "4", "-ci" },
 					}),
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.terraform_fmt,

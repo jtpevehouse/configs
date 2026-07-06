@@ -15,7 +15,7 @@ return {
 			sidebar_filetypes = {
 				NvimTree = true,
 			},
-			exclude_ft = { "fish" },
+			exclude_ft = { "fish", "zsh" },
 		})
 	end,
 }
