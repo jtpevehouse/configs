@@ -22,6 +22,7 @@ LintersFormatters = {
 	"ruff",      -- python linter & formatter
 	"shfmt",     -- bash formatter
 	"stylua",    -- lua formatter
+	"tflint",    -- terraform linter
 	"yamlfmt",   -- yaml formatter
 	"yamllint",  -- yaml linter
 }
