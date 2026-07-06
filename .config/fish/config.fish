@@ -15,6 +15,7 @@ set did_daily kc3xnw-xjjayx000.garmin.com
 set did_feature kc3xnw-xjjayx001.garmin.com
 set did_release kc3xnw-xjjayx002.garmin.com
 set did_pre_merge kc3xnw-xjjayx003.garmin.com
+set did_testing kc3xnw-xjjayx004.garmin.com
 
 # SET EDITOR NVIM
 set -gx EDITOR nvim
