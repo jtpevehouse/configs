@@ -23,6 +23,7 @@ return {
 					}),
 					-- FORMATTERS
 					null_ls.builtins.formatting.clang_format,
+					null_ls.builtins.formatting.fish_indent,
 					null_ls.builtins.formatting.gofumpt,
 					null_ls.builtins.formatting.prettierd.with({
 						filetypes = { "html", "json", "markdown" },
