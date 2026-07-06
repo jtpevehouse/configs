@@ -5,10 +5,14 @@ return {
 	dependencies = { "lukas-reineke/indent-blankline.nvim" },
 	config = function()
 		local everforest = require("everforest")
-		everforest.setup({})
-		everforest.load()
 		local colors = require("everforest.colours")
 		local palette = colors.generate_palette(everforest.config, vim.o.background)
+
+		everforest.setup({
+			disable_italic_comments = true,
+			diagnostic_text_highlight = true,
+		})
+		everforest.load()
 
 		-- INDENT BLANKLINE
 		local hooks = require("ibl.hooks")
@@ -33,6 +37,10 @@ return {
 
 		require("ibl").setup({
 			indent = { highlight = highlight },
+			whitespace = {
+				highlight = highlight,
+				remove_blankline_trail = false,
+			},
 			scope = { enabled = false },
 		})
 	end,

@@ -11,6 +11,7 @@ set.ignorecase = true
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.hl.priorities.semantic_tokens = 95
+vim.opt.list = true
 
 -- CONFIGURE DIAGNOSTIC APPEARANCE
 vim.diagnostic.config({
