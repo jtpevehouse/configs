@@ -148,5 +148,14 @@ function git_sub_rebuild
     end
 end
 
+# KILL ALL FLOATING TMUX WINDOWS
+function tmux_kill_floating
+    set floating_sessions (tmux ls -F '#{session_name}' | grep 'p-')
+    for session in $floating_sessions
+        tmux kill-session -t $session
+        echo "Killed floating session: $session"
+    end
+end
+
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
