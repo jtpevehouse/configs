@@ -1,12 +1,7 @@
--- return {
--- 	"github/copilot.vim",
--- 	lazy = true,
--- }
-
-return { {
+return {
 	"github/copilot.vim",
 	lazy = false,
 	init = function()
-		vim.g.copilot_no_tab_map = false
+		vim.g.copilot_no_tab_map = true
 	end,
-} }
+}

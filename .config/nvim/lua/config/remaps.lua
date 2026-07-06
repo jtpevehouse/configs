@@ -70,6 +70,12 @@ vim.keymap.set("n", "<leader>fe", vim.diagnostic.open_float, tmp_opts)
 vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next, tmp_opts)
 vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev, tmp_opts)
 
+-- COPILOT KEYMAPS
+vim.keymap.set("i", "<A-i>", 'copilot#Accept("<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
+
 -- BARBAR REMAPS
 
 -- Move to previous/next
